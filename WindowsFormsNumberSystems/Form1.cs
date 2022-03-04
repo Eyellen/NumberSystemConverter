@@ -20,17 +20,13 @@ namespace WindowsFormsNumberSystems
 
         private void Button_FinNewNumber_Click(object sender, EventArgs e)
         {
-            double num;
+            string num;
             double fromNumberSystem;
             double toNumberSystem;
 
-            RichTextBox_Log.Text = NumChecker(TextBox_NumberForTranslate.Text);
+            //RichTextBox_Log.Text = NumChecker(TextBox_NumberForTranslate.Text);
+            num = TextBox_NumberForTranslate.Text;
 
-            if (!double.TryParse(TextBox_NumberForTranslate.Text, out num))
-            {
-                TextBox_Result.Text = "Ошибка!";
-                return;
-            }
             if (!double.TryParse(TextBox_FromSystemOfNumber.Text, out fromNumberSystem))
             {
                 TextBox_Result.Text = "Ошибка!";
@@ -42,7 +38,8 @@ namespace WindowsFormsNumberSystems
                 return;
             }
 
-            double result = NumberSystems.Translater(num, fromNumberSystem, toNumberSystem);
+            string result = NumberSystems.toDecimalSystem_str(num, fromNumberSystem);
+            result = NumberSystems.toCustomSystem_str(result, toNumberSystem);
             TextBox_Result.Text = result.ToString();
         }
 

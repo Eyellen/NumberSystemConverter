@@ -12,53 +12,7 @@ namespace LibraryNumberSystems
     /// </summary>
     public static class NumberSystems
     {
-        public static double Translater(double number, double fromNumberSystem, double toNumberSystem)
-        {
-            double result = 0;
-
-            if (fromNumberSystem != 10) // Если число не в десятичной системе, то переводим в неё
-            {
-                for (int i = 0; number > 0; i++)
-                {
-                    result += Math.Pow(fromNumberSystem, i) * (number % 10);
-                    number = (int)number / (int)10;
-                }
-                number = result;
-                result = 0;
-            }
-
-            for (int i = 0; number > 0; i++) // Перевод в конечную систему счисления
-            {
-                result = result + Math.Pow(10, i) * (number % toNumberSystem);
-                number = number / toNumberSystem;
-            }
-
-            return result;
-        }
-        //public static int Translater(int number, int fromNumberSystem, int toNumberSystem)
-        //{
-        //    int result = 0;
-
-        //    if (fromNumberSystem != 10) // Перевод из исходной в десятичную систему счисления
-        //    {
-        //        for (int i = 0; number > 0; i++)
-        //        {
-        //            result += (int)Math.Pow(fromNumberSystem, i) * (number % 10); // Я деббил сука...
-        //            number /= 10;
-        //        }
-
-        //        number = result;
-        //        result = 0;
-        //    }
-
-        //    for (int i = 0; number > 0; i++) // Перевод в конечную систему счисления
-        //    {
-        //        result = result + (int)Math.Pow(10, i) * (number % toNumberSystem);
-        //        number = number / toNumberSystem;
-        //    }
-
-        //    return result;
-        //}
+        const string Digits = "0123456789ABCDEFGHIJKLMNOPQRSTVWXYZ";
 
         #region NEW
 
@@ -68,7 +22,7 @@ namespace LibraryNumberSystems
         /// <param name="str">строка-число</param>
         /// <param name="fromSystem">из системы счисления</param>
         /// <returns>строка-число в десятичной системе счисления</returns>
-        public static string toDecimalSystem_str(string str, double fromSystem)
+        public static string toDecimalSystem_str(string str, double fromSystem) // Только для целых чисел
         {
             double num = 0;
             int i = 0;
@@ -87,12 +41,22 @@ namespace LibraryNumberSystems
                     num = num + (str[str.Length - 1 - i] - 87) * Math.Pow(fromSystem, i);
                 }
             }
+
+
+
             return num.ToString();
         }
-
+        /// <summary>
+        /// Функция переводит строку-число из десятичной системы счисления в любую другую
+        /// </summary>
+        /// <param name="str">строка-число</param>
+        /// <param name="toSystem">в систему</param>
+        /// <returns>строка-число</returns>
         public static string toCustomSystem_str(string str, double toSystem)
         {
-            double num = StrToDouble(str);
+            //double num = StrToDouble(str);
+            double num;
+            double.TryParse(str, out num);
 
             int integral = (int)Math.Truncate(num); // Целая часть
             double fraction = num - integral; // Дробная часть
@@ -132,7 +96,7 @@ namespace LibraryNumberSystems
             // Дробная часть
             if (fraction != 0) result += ",";
             fraction = (fraction - Math.Truncate(fraction)) * toSystem;
-            for (int i = 0; i < 7 && Math.Truncate(fraction) != 0; i++)
+            for (int i = 0; i < 13 && (fraction - Math.Truncate(fraction) != 0); i++)
             {
                 //result = result + Math.Truncate(fraction);
                 switch (Math.Truncate(fraction))
@@ -201,7 +165,7 @@ namespace LibraryNumberSystems
             }
             if (str[0] == '-') num *= -1;
             return num;
-        }
+        } // Нахрена я это сделал если есть tryparse
         /// <summary>
         /// Функция проверяет является ли строка числом
         /// </summary>
