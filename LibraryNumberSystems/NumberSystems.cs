@@ -55,7 +55,7 @@ namespace LibraryNumberSystems
         /// <param name="str">string-number</param>
         /// <param name="toSystem">to system</param>
         /// <returns>string-number</returns>
-        public static string toCustomSystem_str(string str, double toSystem)
+        public static string ToCustomSystem(string str, double toSystem)
         {
             double num;
             double.TryParse(str, out num);
