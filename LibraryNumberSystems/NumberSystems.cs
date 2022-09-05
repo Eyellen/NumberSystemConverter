@@ -12,7 +12,7 @@ namespace LibraryNumberSystems
     /// </summary>
     public static class NumberSystems
     {
-        private const string Digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        private const string _digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
         #region NEW
 
@@ -22,7 +22,7 @@ namespace LibraryNumberSystems
         /// <param name="str">string-number</param>
         /// <param name="fromSystem">from number system</param>
         /// <returns>string-number in decimal number system</returns>
-        public static string toDecimalSystem_str(string str, double fromSystem) // Only for whole numbers
+        public static string ToDecimalSystem(string str, double fromSystem) // Only for whole numbers
         {
             double num = 0;
             int i = 0;
@@ -46,8 +46,6 @@ namespace LibraryNumberSystems
                     power++;
                 }
             }
-
-
 
             return num.ToString();
         }
