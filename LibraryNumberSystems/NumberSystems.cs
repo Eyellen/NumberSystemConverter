@@ -12,7 +12,7 @@ namespace LibraryNumberSystems
     /// </summary>
     public static class NumberSystems
     {
-        const string Digits = "0123456789ABCDEFGHIJKLMNOPQRSTVWXYZ";
+        public const string Digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
         #region NEW
 
@@ -26,19 +26,24 @@ namespace LibraryNumberSystems
         {
             double num = 0;
             int i = 0;
-            for (; i < str.Length; i++) // Перевод целой части
+
+            int power = 0;
+            for (i = str.Length - 1; i >= 0; i--)
             {
-                if (str[str.Length - 1 - i] >= '0' && str[str.Length - 1 - i] <= '9')
+                if(str[i] >= '0' && str[i] <= '9')
                 {
-                    num = num + (str[str.Length - 1 - i] - 48) * Math.Pow(fromSystem, i);
+                    num += (str[i] - '0') * Math.Pow(fromSystem, power);
+                    power++;
                 }
-                if(str[str.Length - 1 - i] >= 'A' && str[str.Length - 1 - i] <= 'Z')
+                if (str[i] >= 'A' && str[i] <= 'Z')
                 {
-                    num = num + (str[str.Length - 1 - i] - 55) * Math.Pow(fromSystem, i);
+                    num += (str[i] - 55) * Math.Pow(fromSystem, power);
+                    power++;
                 }
-                if (str[str.Length - 1 - i] >= 'a' && str[str.Length - 1 - i] <= 'z')
+                if (str[i] >= 'a' && str[i] <= 'z')
                 {
-                    num = num + (str[str.Length - 1 - i] - 87) * Math.Pow(fromSystem, i);
+                    num += (str[i] - 87) * Math.Pow(fromSystem, power);
+                    power++;
                 }
             }
 
@@ -54,7 +59,6 @@ namespace LibraryNumberSystems
         /// <returns>строка-число</returns>
         public static string toCustomSystem_str(string str, double toSystem)
         {
-            //double num = StrToDouble(str);
             double num;
             double.TryParse(str, out num);
 
@@ -65,31 +69,14 @@ namespace LibraryNumberSystems
 
             while (integral > 0) // Целая часть
             {
-                switch (integral % (int)toSystem)
+                if(integral % (int)toSystem < 10)
                 {
-                    default:
-                        result = (integral % (int)toSystem).ToString() + result;
-                        break;
-                    case 10:
-                        result = "A" + result;
-                        break;
-                    case 11:
-                        result = "B" + result;
-                        break;
-                    case 12:
-                        result = "C" + result;
-                        break;
-                    case 13:
-                        result = "D" + result;
-                        break;
-                    case 14:
-                        result = "E" + result;
-                        break;
-                    case 15:
-                        result = "F" + result;
-                        break;
+                    result = (integral % (int)toSystem).ToString() + result;
                 }
-                //result = (integral % (int)toSystem).ToString() + result;
+                else
+                {
+                    result = (char)(integral % (int)toSystem + 55) + result;
+                }
                 integral = integral / (int)toSystem;
             }
 
@@ -98,30 +85,13 @@ namespace LibraryNumberSystems
             fraction = (fraction - Math.Truncate(fraction)) * toSystem;
             for (int i = 0; i < 13 && (fraction - Math.Truncate(fraction) != 0); i++)
             {
-                //result = result + Math.Truncate(fraction);
-                switch (Math.Truncate(fraction))
+                if(Math.Truncate(fraction) < 10)
                 {
-                    default:
-                        result = result + Math.Truncate(fraction);
-                        break;
-                    case 10:
-                        result = result + "A";
-                        break;
-                    case 11:
-                        result = result + "B";
-                        break;
-                    case 12:
-                        result = result + "C";
-                        break;
-                    case 13:
-                        result = result + "D";
-                        break;
-                    case 14:
-                        result = result + "E";
-                        break;
-                    case 15:
-                        result = result + "F";
-                        break;
+                    result = result + Math.Truncate(fraction);
+                }
+                else
+                {
+                    result += (char)(Math.Truncate(fraction) + 55);
                 }
                 fraction = (fraction - Math.Truncate(fraction)) * toSystem;
             }
@@ -177,7 +147,7 @@ namespace LibraryNumberSystems
             if (str[i] == '-' || str[i] == '+') i++;
             for (; i < str.Length; i++)
             {
-                if (str[i] < 48 || str[i] > 57)
+                if (str[i] < '0' || str[i] > '9')
                 {
                     if (str[i] != '.' && str[i] != ',') return false;
                 }
