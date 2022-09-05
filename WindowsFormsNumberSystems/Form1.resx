@@ -118,6 +118,284 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="TextBox_ToSystemOfNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>373, 121</value>
+  </data>
+  <data name="&gt;&gt;Button_FinNewNumber.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="RichTextBox_Log.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 12pt</value>
+  </data>
+  <data name="&gt;&gt;TextBox_ToSystemOfNumber.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="TextBox_FromSystemOfNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>355, 26</value>
+  </data>
+  <data name="&gt;&gt;TextBox_Result.Parent" xml:space="preserve">
+    <value>Panel_Main</value>
+  </data>
+  <data name="&gt;&gt;Text_Result.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Text_Log.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Text_PlaceForLogs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 19</value>
+  </data>
+  <data name="&gt;&gt;Text_ToSystemOfNumber.Parent" xml:space="preserve">
+    <value>Panel_Main</value>
+  </data>
+  <data name="&gt;&gt;Text_Result.Parent" xml:space="preserve">
+    <value>Panel_Main</value>
+  </data>
+  <data name="Panel_Main.Size" type="System.Drawing.Size, System.Drawing">
+    <value>739, 450</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Text_EnterNumber.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>Form1</value>
+  </data>
+  <data name="Button_FinNewNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 153</value>
+  </data>
+  <data name="TextBox_Result.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 209</value>
+  </data>
+  <data name="&gt;&gt;Text_FromSystemOfNumber.Parent" xml:space="preserve">
+    <value>Panel_Main</value>
+  </data>
+  <data name="&gt;&gt;Panel_Main.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Panel_Main.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="TextBox_FromSystemOfNumber.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="Text_FromSystemOfNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 98</value>
+  </data>
+  <data name="&gt;&gt;Text_Main.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Text_Log.Name" xml:space="preserve">
+    <value>Text_Log</value>
+  </data>
+  <data name="Text_EnterNumber.Text" xml:space="preserve">
+    <value>Enter a number to convert to another number system</value>
+  </data>
+  <data name="Text_FromSystemOfNumber.Text" xml:space="preserve">
+    <value>From system</value>
+  </data>
+  <data name="Text_Result.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 186</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Text_Main.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="Button_FinNewNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>715, 30</value>
+  </data>
+  <data name="&gt;&gt;Text_Result.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="Text_EnterNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 46</value>
+  </data>
+  <data name="Text_PlaceForLogs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 353</value>
+  </data>
+  <data name="&gt;&gt;Text_EnterNumber.Parent" xml:space="preserve">
+    <value>Panel_Main</value>
+  </data>
+  <data name="&gt;&gt;TextBox_Result.Name" xml:space="preserve">
+    <value>TextBox_Result</value>
+  </data>
+  <data name="&gt;&gt;Text_EnterNumber.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_Log.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Text_Log.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;TextBox_FromSystemOfNumber.Name" xml:space="preserve">
+    <value>TextBox_FromSystemOfNumber</value>
+  </data>
+  <data name="&gt;&gt;Panel_Main.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="Text_ToSystemOfNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>373, 98</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_Log.Name" xml:space="preserve">
+    <value>RichTextBox_Log</value>
+  </data>
+  <data name="&gt;&gt;TextBox_ToSystemOfNumber.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="Button_FinNewNumber.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="Text_ToSystemOfNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 20</value>
+  </data>
+  <data name="Text_PlaceForLogs.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Text_Result.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_Log.Parent" xml:space="preserve">
+    <value>Panel_Main</value>
+  </data>
+  <data name="&gt;&gt;Text_ToSystemOfNumber.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Panel_Main.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="Text_ToSystemOfNumber.Text" xml:space="preserve">
+    <value>To system</value>
+  </data>
+  <data name="Text_EnterNumber.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="&gt;&gt;TextBox_FromSystemOfNumber.Parent" xml:space="preserve">
+    <value>Panel_Main</value>
+  </data>
+  <data name="RichTextBox_Log.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;Panel_Main.Name" xml:space="preserve">
+    <value>Panel_Main</value>
+  </data>
+  <data name="TextBox_Result.Size" type="System.Drawing.Size, System.Drawing">
+    <value>715, 26</value>
+  </data>
+  <data name="Text_FromSystemOfNumber.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Panel_Main.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;Text_PlaceForLogs.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Text_Log.Text" xml:space="preserve">
+    <value>Log</value>
+  </data>
+  <data name="&gt;&gt;Text_PlaceForLogs.Parent" xml:space="preserve">
+    <value>Panel_Main</value>
+  </data>
+  <data name="Text_Result.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 20</value>
+  </data>
+  <data name="Text_FromSystemOfNumber.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="Text_PlaceForLogs.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;Button_FinNewNumber.Name" xml:space="preserve">
+    <value>Button_FinNewNumber</value>
+  </data>
+  <data name="&gt;&gt;Text_FromSystemOfNumber.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;Text_Main.Parent" xml:space="preserve">
+    <value>Panel_Main</value>
+  </data>
+  <data name="TextBox_Result.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="&gt;&gt;Text_EnterNumber.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Text_Log.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 12pt</value>
+  </data>
+  <data name="&gt;&gt;Panel_Main.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="TextBox_FromSystemOfNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 121</value>
+  </data>
+  <data name="TextBox_ToSystemOfNumber.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;Text_Main.Name" xml:space="preserve">
+    <value>Text_Main</value>
+  </data>
+  <data name="&gt;&gt;TextBox_Result.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="Text_Log.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 320</value>
+  </data>
+  <data name="TextBox_NumberForTranslate.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="TextBox_Result.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="RichTextBox_Log.Size" type="System.Drawing.Size, System.Drawing">
+    <value>715, 96</value>
+  </data>
+  <data name="&gt;&gt;Text_FromSystemOfNumber.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Button_FinNewNumber.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TextBox_FromSystemOfNumber.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;Text_Log.Parent" xml:space="preserve">
+    <value>Panel_Main</value>
+  </data>
+  <data name="Text_Result.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="RichTextBox_Log.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 342</value>
+  </data>
+  <data name="Text_Main.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;TextBox_ToSystemOfNumber.Parent" xml:space="preserve">
+    <value>Panel_Main</value>
+  </data>
+  <data name="TextBox_NumberForTranslate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 69</value>
+  </data>
+  <data name="Text_FromSystemOfNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="Text_Main.Size" type="System.Drawing.Size, System.Drawing">
+    <value>485, 24</value>
+  </data>
+  <data name="Text_PlaceForLogs.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 12pt</value>
+  </data>
+  <data name="Text_Log.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 19</value>
+  </data>
+  <data name="&gt;&gt;Button_FinNewNumber.Parent" xml:space="preserve">
+    <value>Panel_Main</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAAAAAAAEAIAD/DgAAFgAAAIlQTkcNChoKAAAADUlIRFIAAAEAAAABAAgEAAAA9ntg7QAADsZJ
@@ -187,4 +465,133 @@
         B7fn2xFBusfkAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="&gt;&gt;Text_Log.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;Text_Main.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="Text_ToSystemOfNumber.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Text_FromSystemOfNumber.Name" xml:space="preserve">
+    <value>Text_FromSystemOfNumber</value>
+  </data>
+  <data name="Text_Log.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Text_EnterNumber.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;Text_ToSystemOfNumber.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="Text_EnterNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>382, 20</value>
+  </data>
+  <data name="&gt;&gt;TextBox_NumberForTranslate.Parent" xml:space="preserve">
+    <value>Panel_Main</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Program for converting to different number systems</value>
+  </data>
+  <data name="&gt;&gt;Text_ToSystemOfNumber.Name" xml:space="preserve">
+    <value>Text_ToSystemOfNumber</value>
+  </data>
+  <data name="&gt;&gt;Text_PlaceForLogs.Name" xml:space="preserve">
+    <value>Text_PlaceForLogs</value>
+  </data>
+  <data name="TextBox_FromSystemOfNumber.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="Button_FinNewNumber.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="&gt;&gt;TextBox_Result.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Text_Main.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="Text_ToSystemOfNumber.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;TextBox_ToSystemOfNumber.Name" xml:space="preserve">
+    <value>TextBox_ToSystemOfNumber</value>
+  </data>
+  <data name="RichTextBox_Log.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="Text_Main.Location" type="System.Drawing.Point, System.Drawing">
+    <value>99, 9</value>
+  </data>
+  <data name="&gt;&gt;TextBox_NumberForTranslate.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;TextBox_NumberForTranslate.Name" xml:space="preserve">
+    <value>TextBox_NumberForTranslate</value>
+  </data>
+  <data name="&gt;&gt;Text_Result.Name" xml:space="preserve">
+    <value>Text_Result</value>
+  </data>
+  <data name="TextBox_NumberForTranslate.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="TextBox_ToSystemOfNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>354, 26</value>
+  </data>
+  <data name="Text_Main.Text" xml:space="preserve">
+    <value>Program for converting to different number systems</value>
+  </data>
+  <data name="TextBox_ToSystemOfNumber.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="Button_FinNewNumber.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Text_Main.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 14.25pt, style=Bold</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>739, 450</value>
+  </data>
+  <data name="Text_Result.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;TextBox_NumberForTranslate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="TextBox_NumberForTranslate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>715, 26</value>
+  </data>
+  <data name="&gt;&gt;Text_EnterNumber.Name" xml:space="preserve">
+    <value>Text_EnterNumber</value>
+  </data>
+  <data name="Text_FromSystemOfNumber.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_Log.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;TextBox_FromSystemOfNumber.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Text_PlaceForLogs.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Text_ToSystemOfNumber.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="Button_FinNewNumber.Text" xml:space="preserve">
+    <value>Calculate</value>
+  </data>
+  <data name="Text_Result.Text" xml:space="preserve">
+    <value>Result</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>
