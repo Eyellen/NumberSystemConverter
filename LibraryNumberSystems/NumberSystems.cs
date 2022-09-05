@@ -7,22 +7,22 @@ using System.Threading.Tasks;
 namespace LibraryNumberSystems
 {
     /// <summary>
-    /// Класс систем счисления
-    /// Позволяет переводить числа из одной системы счисления в другую
+    /// Number systems class
+    /// Allows to convert numbers from one number system to another
     /// </summary>
     public static class NumberSystems
     {
-        public const string Digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        private const string Digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
         #region NEW
 
         /// <summary>
-        /// Функция переводит строку-число из какой-либо системы в десятичную
+        /// Converts string-number from any system to decimal
         /// </summary>
-        /// <param name="str">строка-число</param>
-        /// <param name="fromSystem">из системы счисления</param>
-        /// <returns>строка-число в десятичной системе счисления</returns>
-        public static string toDecimalSystem_str(string str, double fromSystem) // Только для целых чисел
+        /// <param name="str">string-number</param>
+        /// <param name="fromSystem">from number system</param>
+        /// <returns>string-number in decimal number system</returns>
+        public static string toDecimalSystem_str(string str, double fromSystem) // Only for whole numbers
         {
             double num = 0;
             int i = 0;
@@ -52,22 +52,22 @@ namespace LibraryNumberSystems
             return num.ToString();
         }
         /// <summary>
-        /// Функция переводит строку-число из десятичной системы счисления в любую другую
+        /// Converts string-number from decimal number system to any other
         /// </summary>
-        /// <param name="str">строка-число</param>
-        /// <param name="toSystem">в систему</param>
-        /// <returns>строка-число</returns>
+        /// <param name="str">string-number</param>
+        /// <param name="toSystem">to system</param>
+        /// <returns>string-number</returns>
         public static string toCustomSystem_str(string str, double toSystem)
         {
             double num;
             double.TryParse(str, out num);
 
-            int integral = (int)Math.Truncate(num); // Целая часть
-            double fraction = num - integral; // Дробная часть
+            int integral = (int)Math.Truncate(num);
+            double fraction = num - integral;
 
             string result = "";
 
-            while (integral > 0) // Целая часть
+            while (integral > 0) // Whole part
             {
                 if(integral % (int)toSystem < 10)
                 {
@@ -80,7 +80,7 @@ namespace LibraryNumberSystems
                 integral = integral / (int)toSystem;
             }
 
-            // Дробная часть
+            // Fraction part
             if (fraction != 0) result += ",";
             fraction = (fraction - Math.Truncate(fraction)) * toSystem;
             for (int i = 0; i < 13 && (fraction - Math.Truncate(fraction) != 0); i++)
@@ -101,58 +101,6 @@ namespace LibraryNumberSystems
 
         #endregion
 
-        public static int QuantityOfDigits(double num)
-        {
-            return (int)Math.Log10(num) + 1;
-        }
-        /// <summary>
-        /// Переводит строку в число типа Double
-        /// </summary>
-        /// <param name="str">строка-число</param>
-        /// <returns>Число типа Double</returns>
-        public static double StrToDouble(string str)
-        {
-            if (!IsNumber(str)) return 0; // Проверка является ли строка числом
-
-            double num = 0;
-            int i = 0;
-            if (str[i] == '-' || str[i] == '+') i++; // Пропускает знак числа
-            for (; i < str.Length; i++) // Переводит целую часть строки-числа в double
-            {
-                if (str[i] == '.' || str[i] == ',')
-                {
-                    i++;
-                    break;
-                }
-                num = num * 10 + (str[i] - 48);
-            }
-            double fraction = 1;
-            for (; i < str.Length; i++) // Переводит вещественную часть строки-числа в double
-            {
-                fraction *= 0.1;
-                num += fraction * (str[i] - 48);
-                //num += (fraction *= .1) * (str[i] - 48);
-            }
-            if (str[0] == '-') num *= -1;
-            return num;
-        } // Нахрена я это сделал если есть tryparse
-        /// <summary>
-        /// Функция проверяет является ли строка числом
-        /// </summary>
-        /// <param name="str">строка-число</param>
-        /// <returns>истинно либо ложно</returns>
-        public static bool IsNumber(string str)
-        {
-            int i = 0;
-            if (str[i] == '-' || str[i] == '+') i++;
-            for (; i < str.Length; i++)
-            {
-                if (str[i] < '0' || str[i] > '9')
-                {
-                    if (str[i] != '.' && str[i] != ',') return false;
-                }
-            }
-            return true;
-        }
+        public static int QuantityOfDigits(double num) => (int)Math.Log10(num) + 1;
     }
 }
