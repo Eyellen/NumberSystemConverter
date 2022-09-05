@@ -1,7 +1,6 @@
 E:\User\Documents\Visual Studio Projects\repos\Основы Программирования\NumberSystems\WindowsFormsNumberSystems\bin\Debug\WindowsFormsNumberSystems.exe.config
 E:\User\Documents\Visual Studio Projects\repos\Основы Программирования\NumberSystems\WindowsFormsNumberSystems\bin\Debug\WindowsFormsNumberSystems.exe
 E:\User\Documents\Visual Studio Projects\repos\Основы Программирования\NumberSystems\WindowsFormsNumberSystems\bin\Debug\WindowsFormsNumberSystems.pdb
-E:\User\Documents\Visual Studio Projects\repos\Основы Программирования\NumberSystems\WindowsFormsNumberSystems\obj\Debug\WindowsFormsNumberSystems.csprojAssemblyReference.cache
 E:\User\Documents\Visual Studio Projects\repos\Основы Программирования\NumberSystems\WindowsFormsNumberSystems\obj\Debug\WindowsFormsNumberSystems.Form1.resources
 E:\User\Documents\Visual Studio Projects\repos\Основы Программирования\NumberSystems\WindowsFormsNumberSystems\obj\Debug\WindowsFormsNumberSystems.Properties.Resources.resources
 E:\User\Documents\Visual Studio Projects\repos\Основы Программирования\NumberSystems\WindowsFormsNumberSystems\obj\Debug\WindowsFormsNumberSystems.csproj.GenerateResource.cache
@@ -11,3 +10,4 @@ E:\User\Documents\Visual Studio Projects\repos\Основы Программир
 E:\User\Documents\Visual Studio Projects\repos\Основы Программирования\NumberSystems\WindowsFormsNumberSystems\bin\Debug\LibraryNumberSystems.dll
 E:\User\Documents\Visual Studio Projects\repos\Основы Программирования\NumberSystems\WindowsFormsNumberSystems\bin\Debug\LibraryNumberSystems.pdb
 E:\User\Documents\Visual Studio Projects\repos\Основы Программирования\NumberSystems\WindowsFormsNumberSystems\obj\Debug\WindowsFormsNumberSystems.csproj.CopyComplete
+E:\User\Documents\Visual Studio Projects\repos\Основы Программирования\NumberSystems\WindowsFormsNumberSystems\obj\Debug\WindowsFormsNumberSystems.csproj.AssemblyReference.cache

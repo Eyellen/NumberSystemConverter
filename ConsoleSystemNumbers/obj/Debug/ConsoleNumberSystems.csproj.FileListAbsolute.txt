@@ -3,8 +3,8 @@ E:\User\Documents\Visual Studio Projects\repos\Основы Программир
 E:\User\Documents\Visual Studio Projects\repos\Основы Программирования\NumberSystems\ConsoleSystemNumbers\bin\Debug\ConsoleSystemNumbers.pdb
 E:\User\Documents\Visual Studio Projects\repos\Основы Программирования\NumberSystems\ConsoleSystemNumbers\bin\Debug\LibraryNumberSystems.dll
 E:\User\Documents\Visual Studio Projects\repos\Основы Программирования\NumberSystems\ConsoleSystemNumbers\bin\Debug\LibraryNumberSystems.pdb
-E:\User\Documents\Visual Studio Projects\repos\Основы Программирования\NumberSystems\ConsoleSystemNumbers\obj\Debug\ConsoleNumberSystems.csprojAssemblyReference.cache
 E:\User\Documents\Visual Studio Projects\repos\Основы Программирования\NumberSystems\ConsoleSystemNumbers\obj\Debug\ConsoleNumberSystems.csproj.CoreCompileInputs.cache
 E:\User\Documents\Visual Studio Projects\repos\Основы Программирования\NumberSystems\ConsoleSystemNumbers\obj\Debug\ConsoleNumberSystems.csproj.CopyComplete
 E:\User\Documents\Visual Studio Projects\repos\Основы Программирования\NumberSystems\ConsoleSystemNumbers\obj\Debug\ConsoleSystemNumbers.exe
 E:\User\Documents\Visual Studio Projects\repos\Основы Программирования\NumberSystems\ConsoleSystemNumbers\obj\Debug\ConsoleSystemNumbers.pdb
+E:\User\Documents\Visual Studio Projects\repos\Основы Программирования\NumberSystems\ConsoleSystemNumbers\obj\Debug\ConsoleNumberSystems.csproj.AssemblyReference.cache

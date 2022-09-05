@@ -44,9 +44,9 @@ namespace WindowsFormsNumberSystems
         {
             TextBox_Result.Text = "";
         }
-        private string NumChecker(string str, out string num)
-        {
+        //private string NumChecker(string str, out string num)
+        //{
 
-        }
+        //}
     }
 }

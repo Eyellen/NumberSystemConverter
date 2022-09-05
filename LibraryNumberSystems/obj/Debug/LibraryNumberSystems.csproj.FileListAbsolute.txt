@@ -3,4 +3,4 @@ E:\User\Documents\Visual Studio Projects\repos\Основы Программир
 E:\User\Documents\Visual Studio Projects\repos\Основы Программирования\NumberSystems\LibraryNumberSystems\obj\Debug\LibraryNumberSystems.csproj.CoreCompileInputs.cache
 E:\User\Documents\Visual Studio Projects\repos\Основы Программирования\NumberSystems\LibraryNumberSystems\obj\Debug\LibraryNumberSystems.dll
 E:\User\Documents\Visual Studio Projects\repos\Основы Программирования\NumberSystems\LibraryNumberSystems\obj\Debug\LibraryNumberSystems.pdb
-E:\User\Documents\Visual Studio Projects\repos\Основы Программирования\NumberSystems\LibraryNumberSystems\obj\Debug\LibraryNumberSystems.csprojAssemblyReference.cache
+E:\User\Documents\Visual Studio Projects\repos\Основы Программирования\NumberSystems\LibraryNumberSystems\obj\Debug\LibraryNumberSystems.csproj.AssemblyReference.cache

@@ -11,8 +11,8 @@ namespace ConsoleNumberSystems
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(NumberSystems.ToDecimalSystem("AB321", 13));
-            //Console.WriteLine(NumberSystems.toCustomSystem_str("1414,151516", 16));
+            Console.WriteLine(NumberSystems.ToDecimalSystem("17,435", 8));
+            //Console.WriteLine(NumberSystems.ToCustomSystem("17,435", 8));
         }
     }
 }
