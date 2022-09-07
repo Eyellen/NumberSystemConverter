@@ -12,8 +12,9 @@ namespace LibraryNumberSystems
     /// </summary>
     public class Dynamsys
     {
-        private int _integralPart;
-        private int _fractionalPart;
+        private bool _isNegative;
+        private byte[] _integralPart;
+        private byte[] _fractionalPart;
 
         /// <summary>
         /// Constructor with 1 required parameter
