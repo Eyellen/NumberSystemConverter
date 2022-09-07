@@ -70,4 +70,99 @@ namespace NumberSystemsTests
             Assert.AreEqual(expectedResult, actualResult, 1e-7);
         }
     }
+
+    [TestClass]
+    public class DynamsysTests
+    {
+        #region Dynamsys Constructor Tests
+        [TestMethod]
+        public void Dynamsys_Constructor_Test_01()
+        {
+
+        }
+        #endregion
+
+        #region IsNumber Method Tests
+        [TestMethod]
+        public void IsNumber_Test01()
+        {
+            string number = "1009";
+            bool isNumber = true;
+
+            Assert.IsTrue(isNumber == Dynamsys.IsNumber(number));
+        }
+        [TestMethod]
+        public void IsNumber_Test02()
+        {
+            string number = "AbcXyz";
+            bool isNumber = true;
+
+            Assert.IsTrue(isNumber == Dynamsys.IsNumber(number));
+        }
+        [TestMethod]
+        public void IsNumber_Test03()
+        {
+            string number = "-";
+            bool isNumber = false;
+
+            Assert.IsTrue(isNumber == Dynamsys.IsNumber(number));
+        }
+        [TestMethod]
+        public void IsNumber_Test04()
+        {
+            string number = ".";
+            bool isNumber = false;
+
+            Assert.IsTrue(isNumber == Dynamsys.IsNumber(number));
+        }
+        [TestMethod]
+        public void IsNumber_Test05()
+        {
+            string number = "+.";
+            bool isNumber = false;
+
+            Assert.IsTrue(isNumber == Dynamsys.IsNumber(number));
+        }
+        [TestMethod]
+        public void IsNumber_Test06()
+        {
+            string number = "-/=+";
+            bool isNumber = false;
+
+            Assert.IsTrue(isNumber == Dynamsys.IsNumber(number));
+        }
+        [TestMethod]
+        public void IsNumber_Test07()
+        {
+            string number = "-/abd=+af";
+            bool isNumber = false;
+
+            Assert.IsTrue(isNumber == Dynamsys.IsNumber(number));
+        }
+        [TestMethod]
+        public void IsNumber_Test08()
+        {
+            string number = "10.132";
+            bool isNumber = true;
+
+            Assert.IsTrue(isNumber == Dynamsys.IsNumber(number));
+        }
+        [TestMethod]
+        public void IsNumber_Test09()
+        {
+            string number = "-A.534";
+            bool isNumber = true;
+
+            Assert.IsTrue(isNumber == Dynamsys.IsNumber(number));
+        }
+        [TestMethod]
+        public void IsNumber_Test10()
+        {
+            string number = "+0.F3bc";
+            bool isNumber = true;
+
+            Assert.IsTrue(isNumber == Dynamsys.IsNumber(number));
+        }
+        #endregion
+    }
 }

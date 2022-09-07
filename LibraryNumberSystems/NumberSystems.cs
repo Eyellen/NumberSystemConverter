@@ -7,6 +7,83 @@ using System.Threading.Tasks;
 namespace LibraryNumberSystems
 {
     /// <summary>
+    /// This class was designed to represent various numbers in different number systems.
+    /// This type can handle only numbers that consist of digits and letters (also separators like "-" and ".")
+    /// </summary>
+    public class Dynamsys
+    {
+        private int _integralPart;
+        private int _fractionalPart;
+
+        /// <summary>
+        /// Constructor with 1 required parameter
+        /// </summary>
+        /// <param name="number">string that represents number</param>
+        public Dynamsys(string number)
+        {
+            if (!IsNumber(number))
+                throw new Exception("Cannot create Dynamsys because argument \"number\" contains inappropriate characters.");
+
+
+        }
+
+        /// <summary>
+        /// Determines whether a string can be a Dynamsys number
+        /// </summary>
+        /// <param name="number">string that represents number</param>
+        /// <returns></returns>
+        public static bool IsNumber(string number)
+        {
+            // Checking if number has at least 1 digit
+            // return false if not
+            for (int i = 0; i < number.Length; i++)
+            {
+                if (number[i] >= '0' && number[i] <= '9' ||
+                    number[i] >= 'a' && number[i] <= 'z' ||
+                    number[i] >= 'A' && number[i] <= 'Z')
+                    break;
+
+                if (i + 1 == number.Length) return false;
+            }
+
+            int idx = 0;
+            // Skipping number sign if it is there
+            if (number[idx] == '+' || number[idx] == '-')
+                idx++;
+
+            // Check for integral part
+            while(idx < number.Length)
+            {
+                if (number[idx] == '.')
+                {
+                    idx++;
+                    break;
+                }
+
+                if (!(number[idx] >= '0' && number[idx] <= '9' ||
+                    number[idx] >= 'a' && number[idx] <= 'z' ||
+                    number[idx] >= 'A' && number[idx] <= 'Z'))
+                    return false;
+
+                idx++;
+            }
+
+            // Check for fractional part
+            while (idx < number.Length)
+            {
+                if (!(number[idx] >= '0' && number[idx] <= '9' ||
+                    number[idx] >= 'a' && number[idx] <= 'z' ||
+                    number[idx] >= 'A' && number[idx] <= 'Z'))
+                    return false;
+
+                idx++;
+            }
+
+            return true;
+        }
+    }
+
+    /// <summary>
     /// Number systems class
     /// Allows to convert numbers from one number system to another
     /// </summary>
