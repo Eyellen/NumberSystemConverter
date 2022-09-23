@@ -12,6 +12,7 @@ namespace LibraryNumberSystems
     /// </summary>
     public class Dynamsys
     {
+        private byte _currentNumberSystem;
         private bool _isNegative;
         private byte[] _integralPart;
         private byte[] _fractionalPart;
@@ -35,6 +36,9 @@ namespace LibraryNumberSystems
         /// <returns></returns>
         public static bool IsNumber(string number)
         {
+            if (number == null)
+                throw new NullReferenceException("The number agrument in null.");
+
             // Checking if number has at least 1 digit
             // return false if not
             for (int i = 0; i < number.Length; i++)
@@ -82,6 +86,20 @@ namespace LibraryNumberSystems
 
             return true;
         }
+
+        //public static int SizeOfIntegralPart(string number)
+        //{
+        //    int i = 0;
+        //    for (i = 0; number[i] != '.' && i < number.Length; i++)
+        //    {
+
+        //    }
+        //}
+
+        //public static int SizeOfFractionalPart(string number)
+        //{
+
+        //}
     }
 
     /// <summary>

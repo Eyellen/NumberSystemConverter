@@ -163,6 +163,13 @@ namespace NumberSystemsTests
 
             Assert.IsTrue(isNumber == Dynamsys.IsNumber(number));
         }
+        [TestMethod]
+        public void IsNumber_Test11()
+        {
+            string number = null;
+
+            Assert.ThrowsException<NullReferenceException>(() => Dynamsys.IsNumber(number));
+        }
         #endregion
     }
 }
