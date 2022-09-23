@@ -84,6 +84,13 @@ namespace NumberSystemsTests
 
         #region IsNumber Method Tests
         [TestMethod]
+        public void IsNumber_Test00()
+        {
+            string number = null;
+
+            Assert.ThrowsException<NullReferenceException>(() => Dynamsys.IsNumber(number));
+        }
+        [TestMethod]
         public void IsNumber_Test01()
         {
             string number = "1009";
@@ -166,9 +173,109 @@ namespace NumberSystemsTests
         [TestMethod]
         public void IsNumber_Test11()
         {
-            string number = null;
+            string number = string.Empty;
 
-            Assert.ThrowsException<NullReferenceException>(() => Dynamsys.IsNumber(number));
+            Assert.ThrowsException<Exception>(() => Dynamsys.IsNumber(number));
+        }
+        #endregion
+
+        #region SizeOfIntegralPart Method Tests
+        [TestMethod]
+        public void SizeOfIntegralPart_Test_00()
+        {
+            string number = "aofh)(*f0ah";
+
+            Assert.ThrowsException<Exception>(() => Dynamsys.SizeOfIntegralPart(number));
+        }
+        [TestMethod]
+        public void SizeOfIntegralPart_Test_01()
+        {
+            string number = "ABF14.fA54r";
+            int size = 5;
+
+            Assert.AreEqual(size, Dynamsys.SizeOfIntegralPart(number));
+        }
+        [TestMethod]
+        public void SizeOfIntegralPart_Test_02()
+        {
+            string number = ".8afG";
+            int size = 0;
+
+            Assert.AreEqual(size, Dynamsys.SizeOfIntegralPart(number));
+        }
+        [TestMethod]
+        public void SizeOfIntegralPart_Test_03()
+        {
+            string number = "8afG";
+            int size = 4;
+
+            Assert.AreEqual(size, Dynamsys.SizeOfIntegralPart(number));
+        }
+        [TestMethod]
+        public void SizeOfIntegralPart_Test_04()
+        {
+            string number = "+8afG";
+            int size = 4;
+
+            Assert.AreEqual(size, Dynamsys.SizeOfIntegralPart(number));
+        }
+        [TestMethod]
+        public void SizeOfIntegralPart_Test_05()
+        {
+            string number = "+.8afG";
+            int size = 0;
+
+            Assert.AreEqual(size, Dynamsys.SizeOfIntegralPart(number));
+        }
+        #endregion
+
+        #region SizeOfFractionalPart Method Tests
+        [TestMethod]
+        public void SizeOfFractionalPart_Test_00()
+        {
+            string number = "oia-9fgu(";
+
+            Assert.ThrowsException<Exception>(() => Dynamsys.SizeOfFractionalPart(number));
+        }
+        [TestMethod]
+        public void SizeOfFractionalPart_Test_01()
+        {
+            string number = "ABF14.fA54r";
+            int size = 5;
+
+            Assert.AreEqual(size, Dynamsys.SizeOfFractionalPart(number));
+        }
+        [TestMethod]
+        public void SizeOfFractionalPart_Test_02()
+        {
+            string number = "ABF14.";
+            int size = 0;
+
+            Assert.AreEqual(size, Dynamsys.SizeOfFractionalPart(number));
+        }
+        [TestMethod]
+        public void SizeOfFractionalPart_Test_03()
+        {
+            string number = "ABF14";
+            int size = 0;
+
+            Assert.AreEqual(size, Dynamsys.SizeOfFractionalPart(number));
+        }
+        [TestMethod]
+        public void SizeOfFractionalPart_Test_04()
+        {
+            string number = "+ABF14";
+            int size = 0;
+
+            Assert.AreEqual(size, Dynamsys.SizeOfFractionalPart(number));
+        }
+        [TestMethod]
+        public void SizeOfFractionalPart_Test_05()
+        {
+            string number = "+.ABF14";
+            int size = 5;
+
+            Assert.AreEqual(size, Dynamsys.SizeOfFractionalPart(number));
         }
         #endregion
     }

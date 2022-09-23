@@ -37,7 +37,10 @@ namespace LibraryNumberSystems
         public static bool IsNumber(string number)
         {
             if (number == null)
-                throw new NullReferenceException("The number agrument in null.");
+                throw new NullReferenceException("The number agrument is null.");
+
+            if (number.Equals(string.Empty))
+                throw new Exception("The number argument doesn't contain any character.");
 
             // Checking if number has at least 1 digit
             // return false if not
@@ -87,19 +90,37 @@ namespace LibraryNumberSystems
             return true;
         }
 
-        //public static int SizeOfIntegralPart(string number)
-        //{
-        //    int i = 0;
-        //    for (i = 0; number[i] != '.' && i < number.Length; i++)
-        //    {
+        public static int SizeOfIntegralPart(string number)
+        {
+            if (!IsNumber(number))
+                throw new Exception($"The number argument contains not suitable for {nameof(Dynamsys)} characters.");
 
-        //    }
-        //}
+            int i = 0;
+            // The second condition will be checked only if first condition is true
+            while (i < number.Length && number[i] != '.')
+                i++;
 
-        //public static int SizeOfFractionalPart(string number)
-        //{
+            if (number[0] == '+' || number[0] == '-')
+                return i - 1;
 
-        //}
+            return i;
+        }
+
+        public static int SizeOfFractionalPart(string number)
+        {
+            if (!IsNumber(number))
+                throw new Exception($"The number argument contains not suitable for {nameof(Dynamsys)} characters.");
+
+            int i = 0;
+            // The second condition will be checked only if first condition is true
+            while (i < number.Length && number[i] != '.')
+                i++;
+
+            if (i == number.Length)
+                return 0;
+
+            return number.Length - i - 1;
+        }
     }
 
     /// <summary>
