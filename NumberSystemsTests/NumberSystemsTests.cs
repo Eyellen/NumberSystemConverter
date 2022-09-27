@@ -177,6 +177,38 @@ namespace NumberSystemsTests
 
             Assert.ThrowsException<Exception>(() => Dynamsys.IsNumber(number));
         }
+        [TestMethod]
+        public void IsNumber_Test12()
+        {
+            string number = "oia-9fgu(";
+            bool isNumber = false;
+
+            Assert.IsTrue(isNumber == Dynamsys.IsNumber(number));
+        }
+        [TestMethod]
+        public void IsNumber_Test13()
+        {
+            string number = "*()$#@^%";
+            bool isNumber = false;
+
+            Assert.IsTrue(isNumber == Dynamsys.IsNumber(number));
+        }
+        [TestMethod]
+        public void IsNumber_Test14()
+        {
+            string number = "*()a$#@^%";
+            bool isNumber = false;
+
+            Assert.IsTrue(isNumber == Dynamsys.IsNumber(number));
+        }
+        [TestMethod]
+        public void IsNumber_Test15()
+        {
+            string number = "A()$#@^%fd";
+            bool isNumber = false;
+
+            Assert.IsTrue(isNumber == Dynamsys.IsNumber(number));
+        }
         #endregion
 
         #region SizeOfIntegralPart Method Tests
