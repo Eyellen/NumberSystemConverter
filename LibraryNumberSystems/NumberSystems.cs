@@ -8,10 +8,13 @@ namespace LibraryNumberSystems
 {
     /// <summary>
     /// This class was designed to represent various numbers in different number systems.
-    /// This type can handle only numbers that consist of digits and letters (also separators like "-" and ".")
+    /// This type can handle only numbers that consist of digits and letters (also signs "+" and "-" and separator ".").
     /// </summary>
     public class Dynamsys
     {
+        // Set of symbols the Dynamsys can consist of.
+        private static string _numbersSet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
         private byte _currentNumberSystem;
         private bool _isNegative;
         private byte[] _integralPart;
@@ -26,7 +29,8 @@ namespace LibraryNumberSystems
             if (!IsNumber(number))
                 throw new Exception("Cannot create Dynamsys because argument \"number\" contains inappropriate characters.");
 
-
+            _integralPart = new byte[SizeOfIntegralPart(number)];
+            _fractionalPart = new byte[SizeOfFractionalPart(number)];
         }
 
         /// <summary>
@@ -60,7 +64,7 @@ namespace LibraryNumberSystems
                 idx++;
 
             // Check for integral part
-            while(idx < number.Length)
+            while (idx < number.Length)
             {
                 if (number[idx] == '.')
                 {
@@ -111,15 +115,12 @@ namespace LibraryNumberSystems
             if (!IsNumber(number))
                 throw new Exception($"The number argument contains not suitable for {nameof(Dynamsys)} characters.");
 
-            int i = 0;
-            // The second condition will be checked only if first condition is true
-            while (i < number.Length && number[i] != '.')
-                i++;
+            int separatorPosition = number.IndexOf(".");
 
-            if (i == number.Length)
+            if (separatorPosition <= -1)
                 return 0;
 
-            return number.Length - i - 1;
+            return number.Length - separatorPosition - 1;
         }
     }
 
@@ -147,7 +148,7 @@ namespace LibraryNumberSystems
             int power = 0;
             for (i = str.Length - 1; i >= 0; i--)
             {
-                if(str[i] >= '0' && str[i] <= '9')
+                if (str[i] >= '0' && str[i] <= '9')
                 {
                     num += (str[i] - '0') * Math.Pow(fromSystem, power);
                     power++;
@@ -184,7 +185,7 @@ namespace LibraryNumberSystems
 
             while (integral > 0) // Whole part
             {
-                if(integral % (int)toSystem < 10)
+                if (integral % (int)toSystem < 10)
                 {
                     result = (integral % (int)toSystem).ToString() + result;
                 }
@@ -200,7 +201,7 @@ namespace LibraryNumberSystems
             fraction = (fraction - Math.Truncate(fraction)) * toSystem;
             for (int i = 0; i < 13 && (fraction - Math.Truncate(fraction) != 0); i++)
             {
-                if(Math.Truncate(fraction) < 10)
+                if (Math.Truncate(fraction) < 10)
                 {
                     result = result + Math.Truncate(fraction);
                 }
