@@ -76,9 +76,25 @@ namespace NumberSystemsTests
     {
         #region Dynamsys Constructor Tests
         [TestMethod]
+        public void Dynamsys_Constructor_Test_00()
+        {
+            string number = null;
+
+            Assert.ThrowsException<NullReferenceException>(() => new Dynamsys(number));
+        }
+        [TestMethod]
         public void Dynamsys_Constructor_Test_01()
         {
+            string number = string.Empty;
 
+            Assert.ThrowsException<Exception>(() => new Dynamsys(number));
+        }
+        [TestMethod]
+        public void Dynamsys_Constructor_Test_02()
+        {
+            string number = "aj_)AGF-a0G";
+
+            Assert.ThrowsException<Exception>(() => new Dynamsys(number));
         }
         #endregion
 
