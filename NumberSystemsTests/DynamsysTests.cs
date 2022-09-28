@@ -51,33 +51,8 @@ namespace NumberSystemsTests
             byte[] expectedIntegralPart = { 10, 24, 16, 17 };
             byte[] expectedFractionalPart = { 1, 5, 25, 19, 1 };
 
-            Dynamsys dynamsys = new Dynamsys(number, numberSystem);
-
-            PrivateObject privateDynamsys = new PrivateObject(dynamsys);
-            byte actualNumberSystem = (byte)privateDynamsys.GetField("_currentNumberSystem");
-            bool actualIsNegative = (bool)privateDynamsys.GetField("_isNegative");
-            byte[] actualIntegralPart = (byte[])privateDynamsys.GetField("_integralPart");
-            byte[] actualFractionalPart = (byte[])privateDynamsys.GetField("_fractionalPart");
-
-            // Output
-            Console.WriteLine("Actual number system: " + actualNumberSystem);
-            Console.WriteLine("Actual is negative: " + actualIsNegative);
-
-            Console.Write("Actual integral part:\t");
-            foreach (var item in actualIntegralPart)
-                Console.Write($" {item}");
-            Console.WriteLine();
-
-            Console.Write("Actual fractional part:\t");
-            foreach (var item in actualFractionalPart)
-                Console.Write($" {item}");
-            Console.WriteLine();
-            //
-
-            Assert.AreEqual(numberSystem, actualNumberSystem);
-            Assert.AreEqual(isNegative, actualIsNegative);
-            CollectionAssert.AreEqual(expectedIntegralPart, actualIntegralPart);
-            CollectionAssert.AreEqual(expectedFractionalPart, actualFractionalPart);
+            AssertDynamsys_Constructor(number, expectedIntegralPart,
+                expectedFractionalPart, numberSystem, isNegative);
         }
         [TestMethod]
         public void Dynamsys_Constructor_Test_05()
@@ -89,6 +64,39 @@ namespace NumberSystemsTests
             byte[] expectedIntegralPart = { 10, 15, 18, 9, 7, 10, 15 };
             byte[] expectedFractionalPart = { 9, 10, 16, 15, 10 };
 
+            AssertDynamsys_Constructor(number, expectedIntegralPart,
+                expectedFractionalPart, numberSystem, isNegative);
+        }
+        [TestMethod]
+        public void Dynamsys_Constructor_Test_06()
+        {
+            string number = "-aFI97AF.9agfA";
+            byte numberSystem = 19;
+            bool isNegative = true;
+
+            byte[] expectedIntegralPart = { 10, 15, 18, 9, 7, 10, 15 };
+            byte[] expectedFractionalPart = { 9, 10, 16, 15, 10 };
+
+            AssertDynamsys_Constructor(number, expectedIntegralPart,
+                expectedFractionalPart, numberSystem, isNegative);
+        }
+        [TestMethod]
+        public void Dynamsys_Constructor_Test_07()
+        {
+            string number = "+aFI97AF.9agfA";
+            byte numberSystem = 19;
+            bool isNegative = false;
+
+            byte[] expectedIntegralPart = { 10, 15, 18, 9, 7, 10, 15 };
+            byte[] expectedFractionalPart = { 9, 10, 16, 15, 10 };
+
+            AssertDynamsys_Constructor(number, expectedIntegralPart,
+                expectedFractionalPart, numberSystem, isNegative);
+        }
+
+        private void AssertDynamsys_Constructor(string number, byte[] expectedIntegralPart,
+            byte[] expectedFractionalPart, byte numberSystem, bool isNegative)
+        {
             Dynamsys dynamsys = new Dynamsys(number, numberSystem);
 
             PrivateObject privateDynamsys = new PrivateObject(dynamsys);
