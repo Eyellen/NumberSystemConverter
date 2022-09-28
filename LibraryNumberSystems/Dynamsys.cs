@@ -25,8 +25,8 @@ namespace LibraryNumberSystems
             if (!IsNumber(number))
                 throw new Exception("Cannot create Dynamsys because argument \"number\" contains inappropriate characters.");
 
-            _integralPart = new byte[SizeOfIntegralPart(number)];
-            _fractionalPart = new byte[SizeOfFractionalPart(number)];
+            _integralPart = new byte[GetIntegralPart(number).Length];
+            _fractionalPart = new byte[GetFractionalPart(number).Length];
         }
 
         /// <summary>
@@ -88,35 +88,6 @@ namespace LibraryNumberSystems
             }
 
             return true;
-        }
-
-        public static int SizeOfIntegralPart(string number)
-        {
-            if (!IsNumber(number))
-                throw new Exception($"The number argument contains not suitable for {nameof(Dynamsys)} characters.");
-
-            int i = 0;
-            // The second condition will be checked only if first condition is true
-            while (i < number.Length && number[i] != '.')
-                i++;
-
-            if (number[0] == '+' || number[0] == '-')
-                return i - 1;
-
-            return i;
-        }
-
-        public static int SizeOfFractionalPart(string number)
-        {
-            if (!IsNumber(number))
-                throw new Exception($"The number argument contains not suitable for {nameof(Dynamsys)} characters.");
-
-            int separatorPosition = number.IndexOf('.');
-
-            if (separatorPosition <= -1)
-                return 0;
-
-            return number.Length - separatorPosition - 1;
         }
 
         public static string GetIntegralPart(string number)
