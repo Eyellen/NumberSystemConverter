@@ -13,8 +13,6 @@ namespace ConsoleNumberSystems
         {
             //Console.WriteLine(NumberSystems.ToDecimalSystem("17,435", 8));
             //Console.WriteLine(NumberSystems.ToCustomSystem("17,435", 8));
-
-            Dynamsys a = new Dynamsys("-/AB.12");
         }
     }
 }

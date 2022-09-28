@@ -21,13 +21,21 @@ namespace LibraryNumberSystems
         /// Constructor with 1 required parameter
         /// </summary>
         /// <param name="number">string that represents number</param>
-        public Dynamsys(string number)
+        public Dynamsys(string number, byte numberSystem)
         {
             if (!IsNumber(number))
                 throw new Exception("Cannot create Dynamsys because argument \"number\" contains inappropriate characters.");
 
-            _integralPart = new byte[GetIntegralPart(number).Length];
-            _fractionalPart = new byte[GetFractionalPart(number).Length];
+            foreach (char character in number)
+            {
+                if (_charactersSet.IndexOf(character) >= numberSystem)
+                    throw new Exception("The number argument can't contain numbers bigger than number system.");
+            }
+
+            _currentNumberSystem = numberSystem;
+            _isNegative = number[0] == '-';
+            _integralPart = ToArray(GetIntegralPart(number));
+            _fractionalPart = ToArray(GetFractionalPart(number));
         }
 
         /// <summary>
