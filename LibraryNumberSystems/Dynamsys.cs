@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace LibraryNumberSystems
 {
@@ -9,7 +10,7 @@ namespace LibraryNumberSystems
     public class Dynamsys
     {
         // Set of symbols the Dynamsys can consist of.
-        private static string _numbersSet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        private static string _charactersSet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
         private byte _currentNumberSystem;
         private bool _isNegative;
@@ -118,6 +119,38 @@ namespace LibraryNumberSystems
                 return string.Empty;
 
             return number.Substring(separatorPosition + 1);
+        }
+
+        /// <summary>
+        /// Converts string number to array of corresponding values.
+        /// </summary>
+        /// <param name="number">String that contains only characters from characters set.</param>
+        /// <returns></returns>
+        public static byte[] ToArray(string number)
+        {
+            if (!IsNumber(number))
+                throw new Exception($"The number argument contains not suitable for {nameof(Dynamsys)} characters.");
+
+            Regex regex = new Regex(@"[1-9_A-Z]+", RegexOptions.IgnoreCase);
+            if (!regex.IsMatch(number))
+                throw new Exception("The number have to consisnt only of characters from characters set. " +
+                    "i.e. it has to be either integral part or fractional part.");
+
+            number = number.ToUpper();
+
+            byte[] arr = new byte[number.Length];
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                int code = _charactersSet.IndexOf(number[i]);
+
+                if (code <= -1)
+                    throw new Exception("The number argument contains inappropriate character(s).");
+
+                arr[i] = (byte)code;
+            }
+
+            return arr;
         }
     }
 }

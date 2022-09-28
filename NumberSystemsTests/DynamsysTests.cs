@@ -257,5 +257,38 @@ namespace NumberSystemsTests
             Assert.AreEqual(expectedResult, Dynamsys.GetFractionalPart(number));
         }
         #endregion
+
+        #region ToArray Method Tests
+        [TestMethod]
+        public void ToArray_Test_00()
+        {
+            string number = null;
+
+            Assert.ThrowsException<NullReferenceException>(() => Dynamsys.ToArray(number));
+        }
+        [TestMethod]
+        public void ToArray_Test_01()
+        {
+            string number = string.Empty;
+
+            Assert.ThrowsException<Exception>(() => Dynamsys.ToArray(number));
+        }
+        [TestMethod]
+        public void ToArray_Test_02()
+        {
+            string number = "AOHO913";
+            byte[] expectedResult = { 10, 24, 17, 24, 9, 1, 3 };
+
+            CollectionAssert.AreEqual(expectedResult, Dynamsys.ToArray(number));
+        }
+        [TestMethod]
+        public void ToArray_Test_03()
+        {
+            string number = "oahf09ah3";
+            byte[] expectedResult = { 24, 10, 17, 15, 0, 9, 10, 17, 3 };
+
+            CollectionAssert.AreEqual(expectedResult, Dynamsys.ToArray(number));
+        }
+        #endregion
     }
 }
