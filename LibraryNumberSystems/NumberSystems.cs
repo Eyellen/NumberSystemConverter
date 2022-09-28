@@ -115,12 +115,42 @@ namespace LibraryNumberSystems
             if (!IsNumber(number))
                 throw new Exception($"The number argument contains not suitable for {nameof(Dynamsys)} characters.");
 
-            int separatorPosition = number.IndexOf(".");
+            int separatorPosition = number.IndexOf('.');
 
             if (separatorPosition <= -1)
                 return 0;
 
             return number.Length - separatorPosition - 1;
+        }
+
+        public static string GetIntegralPart(string number)
+        {
+            if (!IsNumber(number))
+                throw new Exception($"The number argument contains not suitable for {nameof(Dynamsys)} characters.");
+
+            // Remove number sign if it has one
+            if (number[0] == '+' || number[0] == '-')
+                number = number.Substring(1);
+
+            int separatorPosition = number.IndexOf('.');
+
+            if (separatorPosition <= -1)
+                return number;
+
+            return number.Substring(0, separatorPosition);
+        }
+
+        public static string GetFractionalPart(string number)
+        {
+            if (!IsNumber(number))
+                throw new Exception($"The number argument contains not suitable for {nameof(Dynamsys)} characters.");
+
+            int separatorPosition = number.IndexOf('.');
+
+            if (separatorPosition <= -1)
+                return string.Empty;
+
+            return number.Substring(separatorPosition + 1);
         }
     }
 

@@ -326,5 +326,103 @@ namespace NumberSystemsTests
             Assert.AreEqual(size, Dynamsys.SizeOfFractionalPart(number));
         }
         #endregion
+
+        #region GetIntegralPart Method Tests
+        [TestMethod]
+        public void GetIntegralPart_Test_00()
+        {
+            string number = null;
+
+            Assert.ThrowsException<NullReferenceException>(() => Dynamsys.GetIntegralPart(number));
+        }
+        [TestMethod]
+        public void GetIntegralPart_Test_01()
+        {
+            string number = string.Empty;
+
+            Assert.ThrowsException<Exception>(() => Dynamsys.GetIntegralPart(number));
+        }
+        [TestMethod]
+        public void GetIntegralPart_Test_02()
+        {
+            string number = "AFG53I.AO1H5109L1K";
+            string expectedResult = "AFG53I";
+
+            Assert.AreEqual(expectedResult, Dynamsys.GetIntegralPart(number));
+        }
+        [TestMethod]
+        public void GetIntegralPart_Test_03()
+        {
+            string number = "+15OHB.141";
+            string expectedResult = "15OHB";
+
+            Assert.AreEqual(expectedResult, Dynamsys.GetIntegralPart(number));
+        }
+        [TestMethod]
+        public void GetIntegralPart_Test_04()
+        {
+            string number = "PIAGPIHN";
+            string expectedResult = "PIAGPIHN";
+
+            Assert.AreEqual(expectedResult, Dynamsys.GetIntegralPart(number));
+        }
+        [TestMethod]
+        public void GetIntegralPart_Test_05()
+        {
+            string number = ".9UQG";
+            string expectedResult = string.Empty;
+
+            Assert.AreEqual(expectedResult, Dynamsys.GetIntegralPart(number));
+        }
+        #endregion
+
+        #region GetFractionalPart Method Tests
+        [TestMethod]
+        public void GetFractionalPart_Test_00()
+        {
+            string number = null;
+
+            Assert.ThrowsException<NullReferenceException>(() => Dynamsys.GetFractionalPart(number));
+        }
+        [TestMethod]
+        public void GetFractionalPart_Test_01()
+        {
+            string number = string.Empty;
+
+            Assert.ThrowsException<Exception>(() => Dynamsys.GetFractionalPart(number));
+        }
+        [TestMethod]
+        public void GetFractionalPart_Test_02()
+        {
+            string number = "API.151GH0QIN";
+            string expectedResult = "151GH0QIN";
+
+            Assert.AreEqual(expectedResult, Dynamsys.GetFractionalPart(number));
+        }
+        [TestMethod]
+        public void GetFractionalPart_Test_03()
+        {
+            string number = "09A7GA";
+            string expectedResult = string.Empty;
+
+            Assert.AreEqual(expectedResult, Dynamsys.GetFractionalPart(number));
+        }
+        [TestMethod]
+        public void GetFractionalPart_Test_04()
+        {
+            string number = ".09A7GA";
+            string expectedResult = "09A7GA";
+
+            Assert.AreEqual(expectedResult, Dynamsys.GetFractionalPart(number));
+        }
+        [TestMethod]
+        public void GetFractionalPart_Test_05()
+        {
+            string number = "+.09A7GA";
+            string expectedResult = "09A7GA";
+
+            Assert.AreEqual(expectedResult, Dynamsys.GetFractionalPart(number));
+        }
+        #endregion
     }
 }
