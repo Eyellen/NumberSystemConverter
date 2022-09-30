@@ -386,5 +386,32 @@ namespace NumberSystemsTests
             CollectionAssert.AreEqual(expectedResult, Dynamsys.ToArray(number));
         }
         #endregion
+
+        #region ToString Method Tests
+        [TestMethod]
+        public void ToString_Test_00()
+        {
+            Dynamsys dynamsys = new Dynamsys("14.5163", 10);
+            string expectedResult = "14.5163";
+
+            Assert.AreEqual(expectedResult, dynamsys.ToString());
+        }
+        [TestMethod]
+        public void ToString_Test_01()
+        {
+            Dynamsys dynamsys = new Dynamsys("A8F43.7B8CD", 16);
+            string expectedResult = "A8F43.7B8CD";
+
+            Assert.AreEqual(expectedResult, dynamsys.ToString());
+        }
+        [TestMethod]
+        public void ToString_Test_02()
+        {
+            Dynamsys dynamsys = new Dynamsys("-A8F43.7B8CD", 16);
+            string expectedResult = "-A8F43.7B8CD";
+
+            Assert.AreEqual(expectedResult, dynamsys.ToString());
+        }
+        #endregion
     }
 }

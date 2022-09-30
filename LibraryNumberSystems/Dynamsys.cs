@@ -139,7 +139,7 @@ namespace LibraryNumberSystems
             if (!IsNumber(number))
                 throw new Exception($"The number argument contains not suitable for {nameof(Dynamsys)} characters.");
 
-            Regex regex = new Regex(@"[1-9_A-Z]+", RegexOptions.IgnoreCase);
+            Regex regex = new Regex(@"[0-9_A-Z]+", RegexOptions.IgnoreCase);
             if (!regex.IsMatch(number))
                 throw new Exception("The number have to consisnt only of characters from characters set. " +
                     "i.e. it has to be either integral part or fractional part.");
@@ -159,6 +159,23 @@ namespace LibraryNumberSystems
             }
 
             return arr;
+        }
+
+        public override string ToString()
+        {
+            char[] integralPart = new char[_integralPart.Length];
+            char[] fractionalPart = new char[_fractionalPart.Length];
+
+            for (int i = 0; i < _integralPart.Length; i++)
+                integralPart[i] = _charactersSet[_integralPart[i]];
+
+            for (int i = 0; i < _fractionalPart.Length; i++)
+                fractionalPart[i] = _charactersSet[_fractionalPart[i]];
+
+            string result = (_isNegative ? "-" : string.Empty) + new string(integralPart) +
+                (_fractionalPart.Length > 0 ? "." + new string(fractionalPart) : string.Empty);
+
+            return result;
         }
     }
 }
