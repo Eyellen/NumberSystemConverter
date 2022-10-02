@@ -34,8 +34,18 @@ namespace LibraryNumberSystems
 
             _currentNumberSystem = numberSystem;
             _isNegative = number[0] == '-';
-            _integralPart = ToArray(GetIntegralPart(number));
-            _fractionalPart = ToArray(GetFractionalPart(number));
+
+            string integralPart = GetIntegralPart(number);
+            if (!integralPart.Equals(string.Empty))
+                _integralPart = ToArray(integralPart);
+            else
+                _integralPart = Array.Empty<byte>();
+
+            string fractionalPart = GetFractionalPart(number);
+            if (!fractionalPart.Equals(string.Empty))
+                _fractionalPart = ToArray(fractionalPart);
+            else
+                _fractionalPart = Array.Empty<byte>();
         }
 
         /// <summary>

@@ -93,6 +93,32 @@ namespace NumberSystemsTests
             AssertDynamsys_Constructor(number, expectedIntegralPart,
                 expectedFractionalPart, numberSystem, isNegative);
         }
+        [TestMethod]
+        public void Dynamsys_Constructor_Test_08()
+        {
+            string number = "aFI97AF";
+            byte numberSystem = 19;
+            bool isNegative = false;
+
+            byte[] expectedIntegralPart = { 10, 15, 18, 9, 7, 10, 15 };
+            byte[] expectedFractionalPart = Array.Empty<byte>();
+
+            AssertDynamsys_Constructor(number, expectedIntegralPart,
+                expectedFractionalPart, numberSystem, isNegative);
+        }
+        [TestMethod]
+        public void Dynamsys_Constructor_Test_09()
+        {
+            string number = ".9agfA";
+            byte numberSystem = 19;
+            bool isNegative = false;
+
+            byte[] expectedIntegralPart = Array.Empty<byte>();
+            byte[] expectedFractionalPart = { 9, 10, 16, 15, 10 };
+
+            AssertDynamsys_Constructor(number, expectedIntegralPart,
+                expectedFractionalPart, numberSystem, isNegative);
+        }
 
         private void AssertDynamsys_Constructor(string number, byte[] expectedIntegralPart,
             byte[] expectedFractionalPart, byte numberSystem, bool isNegative)
