@@ -23,6 +23,8 @@ namespace LibraryNumberSystems
         /// <param name="number">string that represents number</param>
         public Dynamsys(string number, byte numberSystem)
         {
+            number = number.ToUpper();
+
             if (!IsNumber(number))
                 throw new Exception("Cannot create Dynamsys because argument \"number\" contains inappropriate characters.");
 
