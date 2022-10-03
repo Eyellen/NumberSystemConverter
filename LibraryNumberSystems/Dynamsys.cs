@@ -4,8 +4,9 @@ using System.Text.RegularExpressions;
 namespace NumberSystems
 {
     /// <summary>
-    /// This class was designed to represent various numbers in different number systems.
-    /// This type can handle only numbers that consist of digits and letters (also signs "+" and "-" and separator ".").
+    /// Class that represents number and allows to convert numbers to different number systems.
+    /// Also this class allows to use basic operators and math operations.
+    /// The number can consist only of characters from characters set, positive/negative signs and decimal separators.
     /// </summary>
     public class Dynamsys
     {
@@ -18,9 +19,9 @@ namespace NumberSystems
         private byte[] _fractionalPart;
 
         /// <summary>
-        /// Constructor with 1 required parameter
         /// </summary>
-        /// <param name="number">string that represents number</param>
+        /// <param name="number">String that represents number. Can't contain values equal or bigger than numberSystem.</param>
+        /// <param name="numberSystem"></param>
         public Dynamsys(string number, byte numberSystem)
         {
             number = number.ToUpper();
@@ -51,10 +52,11 @@ namespace NumberSystems
         }
 
         /// <summary>
-        /// Determines whether a string can be a Dynamsys number
+        /// Determines whether a string can be a Dynamsys number 
+        /// according to characters set.
         /// </summary>
-        /// <param name="number">string that represents number</param>
-        /// <returns></returns>
+        /// <param name="number">String that represents number.</param>
+        /// <returns>True if number can be a Dynamsys, otherwise False.</returns>
         public static bool IsNumber(string number)
         {
             if (number == null)
@@ -100,10 +102,11 @@ namespace NumberSystems
         }
 
         /// <summary>
-        /// Converts string number to array of corresponding values.
+        /// Converts sequence of characters from characters set to array type of byte
+        /// with values corresponding to indexes of characters in characters set.
         /// </summary>
         /// <param name="number">String that contains only characters from characters set.</param>
-        /// <returns></returns>
+        /// <returns>Array of values corresponding to indexes of characters in characters set.</returns>
         public static byte[] ToArray(string number)
         {
             if (!IsNumber(number))
