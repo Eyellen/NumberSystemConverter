@@ -63,52 +63,9 @@ namespace LibraryNumberSystems
             if (number.Equals(string.Empty))
                 throw new Exception("The number argument doesn't contain any character.");
 
-            // Checking if number has at least 1 digit
-            // return false if not
-            for (int i = 0; i < number.Length; i++)
-            {
-                if (number[i] >= '0' && number[i] <= '9' ||
-                    number[i] >= 'a' && number[i] <= 'z' ||
-                    number[i] >= 'A' && number[i] <= 'Z')
-                    break;
+            Regex regex = new Regex(@"^[\+-]?(([0-9_A-Z]+)|([0-9_A-Z]*\.[0-9_A-Z]+)){1}$", RegexOptions.IgnoreCase);
 
-                if (i + 1 == number.Length) return false;
-            }
-
-            int idx = 0;
-            // Skipping number sign if it is there
-            if (number[idx] == '+' || number[idx] == '-')
-                idx++;
-
-            // Check for integral part
-            while (idx < number.Length)
-            {
-                if (number[idx] == '.')
-                {
-                    idx++;
-                    break;
-                }
-
-                if (!(number[idx] >= '0' && number[idx] <= '9' ||
-                    number[idx] >= 'a' && number[idx] <= 'z' ||
-                    number[idx] >= 'A' && number[idx] <= 'Z'))
-                    return false;
-
-                idx++;
-            }
-
-            // Check for fractional part
-            while (idx < number.Length)
-            {
-                if (!(number[idx] >= '0' && number[idx] <= '9' ||
-                    number[idx] >= 'a' && number[idx] <= 'z' ||
-                    number[idx] >= 'A' && number[idx] <= 'Z'))
-                    return false;
-
-                idx++;
-            }
-
-            return true;
+            return regex.IsMatch(number);
         }
 
         public static string GetIntegralPart(string number)
