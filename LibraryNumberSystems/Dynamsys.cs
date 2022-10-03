@@ -109,7 +109,7 @@ namespace NumberSystems
             if (!IsNumber(number))
                 throw new Exception($"The number argument contains not suitable for {nameof(Dynamsys)} characters.");
 
-            Regex regex = new Regex(@"[0-9_A-Z]+", RegexOptions.IgnoreCase);
+            Regex regex = new Regex(@"^[0-9_A-Z]+$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
             if (!regex.IsMatch(number))
                 throw new Exception("The number have to consisnt only of characters from characters set. " +
                     "i.e. it has to be either integral part or fractional part.");
