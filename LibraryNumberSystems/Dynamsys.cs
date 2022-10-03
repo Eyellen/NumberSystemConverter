@@ -63,7 +63,7 @@ namespace LibraryNumberSystems
             if (number.Equals(string.Empty))
                 throw new Exception("The number argument doesn't contain any character.");
 
-            Regex regex = new Regex(@"^[\+-]?(([0-9_A-Z]+)|([0-9_A-Z]*\.[0-9_A-Z]+)){1}$", RegexOptions.IgnoreCase);
+            Regex regex = new Regex(@"^[\+-]?([0-9_A-Z]*\.?[0-9_A-Z]+){1}$", RegexOptions.IgnoreCase);
 
             return regex.IsMatch(number);
         }
