@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using LibraryNumberSystems;
+using NumberSystems;
 
 namespace NumberSystemsTests
 {

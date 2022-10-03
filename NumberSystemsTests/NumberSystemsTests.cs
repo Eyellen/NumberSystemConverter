@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using LibraryNumberSystems;
+using NumberSystems;
 
 namespace NumberSystemsTests
 {
@@ -13,7 +13,7 @@ namespace NumberSystemsTests
             string numberToTranslate = "A42F"; // 16 number system
             string expectedResult = "42031"; // 10 number system
 
-            string actualResult = NumberSystems.ToDecimalSystem(numberToTranslate, fromSystem: 16);
+            string actualResult = NumberSystems.NumberSystems.ToDecimalSystem(numberToTranslate, fromSystem: 16);
 
             Assert.AreEqual(expectedResult, actualResult, ignoreCase: true);
         }
@@ -23,7 +23,7 @@ namespace NumberSystemsTests
             string numberToTranslate = "13221"; // 4 number system
             string expectedResult = "489"; // 10 number system
 
-            string actualResult = NumberSystems.ToDecimalSystem(numberToTranslate, fromSystem: 4);
+            string actualResult = NumberSystems.NumberSystems.ToDecimalSystem(numberToTranslate, fromSystem: 4);
 
             Assert.AreEqual(expectedResult, actualResult, ignoreCase: true);
         }
@@ -34,7 +34,7 @@ namespace NumberSystemsTests
             double expectedResult = 15.556640625; // 10 number system
 
             double actualResult;
-            double.TryParse(NumberSystems.ToDecimalSystem(numberToTranslate, fromSystem: 8), out actualResult);
+            double.TryParse(NumberSystems.NumberSystems.ToDecimalSystem(numberToTranslate, fromSystem: 8), out actualResult);
 
             Assert.AreEqual(expectedResult, actualResult, 1e-7);
         }
@@ -44,7 +44,7 @@ namespace NumberSystemsTests
             string numberToTranslate = "743"; // 10 number system
             string expectedResult = "23213"; // 4 number system
 
-            string actualResult = NumberSystems.ToCustomSystem(numberToTranslate, toSystem: 4);
+            string actualResult = NumberSystems.NumberSystems.ToCustomSystem(numberToTranslate, toSystem: 4);
 
             Assert.AreEqual(expectedResult, actualResult, ignoreCase: true);
         }
@@ -54,7 +54,7 @@ namespace NumberSystemsTests
             string numberToTranslate = "13221"; // 10 number system
             string expectedResult = "33A5"; // 16 number system
 
-            string actualResult = NumberSystems.ToCustomSystem(numberToTranslate, toSystem: 16);
+            string actualResult = NumberSystems.NumberSystems.ToCustomSystem(numberToTranslate, toSystem: 16);
 
             Assert.AreEqual(expectedResult, actualResult, ignoreCase: true);
         }
@@ -65,7 +65,7 @@ namespace NumberSystemsTests
             double expectedResult = 21.33656050753; // 8 number system
 
             double actualResult;
-            double.TryParse(NumberSystems.ToCustomSystem(numberToTranslate, toSystem: 8), out actualResult);
+            double.TryParse(NumberSystems.NumberSystems.ToCustomSystem(numberToTranslate, toSystem: 8), out actualResult);
 
             Assert.AreEqual(expectedResult, actualResult, 1e-7);
         }

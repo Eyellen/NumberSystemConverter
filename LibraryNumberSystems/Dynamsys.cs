@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace LibraryNumberSystems
+namespace NumberSystems
 {
     /// <summary>
     /// This class was designed to represent various numbers in different number systems.
