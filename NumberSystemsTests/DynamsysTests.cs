@@ -501,5 +501,61 @@ namespace NumberSystemsTests
             Assert.AreEqual(expectedResult, dynamsys.ToString());
         }
         #endregion
+
+        #region Equals Method Tests
+        [TestMethod]
+        public void Equals_Test_00()
+        {
+            Dynamsys a = new Dynamsys("15136.1215", 10);
+            Dynamsys b = new Dynamsys("15136.1215", 10);
+            bool areEqual = true;
+
+            Assert.AreEqual(areEqual, a.Equals(b));
+        }
+        [TestMethod]
+        public void Equals_Test_01()
+        {
+            Dynamsys a = new Dynamsys("15136.1215", 10);
+            Dynamsys b = new Dynamsys("15136", 10);
+            bool areEqual = false;
+
+            Assert.AreEqual(areEqual, a.Equals(b));
+        }
+        [TestMethod]
+        public void Equals_Test_02()
+        {
+            Dynamsys a = new Dynamsys("15136.1215", 10);
+            Dynamsys b = new Dynamsys("-15136.1215", 10);
+            bool areEqual = false;
+
+            Assert.AreEqual(areEqual, a.Equals(b));
+        }
+        [TestMethod]
+        public void Equals_Test_03()
+        {
+            Dynamsys a = new Dynamsys("15136.1215", 10);
+            Dynamsys b = new Dynamsys("15136.1215", 12);
+            bool areEqual = false;
+
+            Assert.AreEqual(areEqual, a.Equals(b));
+        }
+        [TestMethod]
+        public void Equals_Test_04()
+        {
+            Dynamsys a = new Dynamsys(".1215", 10);
+            Dynamsys b = new Dynamsys(".1215", 10);
+            bool areEqual = true;
+
+            Assert.AreEqual(areEqual, a.Equals(b));
+        }
+        [TestMethod]
+        public void Equals_Test_05()
+        {
+            Dynamsys a = null;
+            Dynamsys b = new Dynamsys(".1215", 10);
+
+            Assert.ThrowsException<NullReferenceException>(() => a.Equals(b));
+        }
+        #endregion
     }
 }

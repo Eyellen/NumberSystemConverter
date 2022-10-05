@@ -170,5 +170,39 @@ namespace NumberSystems
 
             return result;
         }
+
+        public static bool Equals(Dynamsys a, Dynamsys b)
+        {
+            if (a._isNegative != b._isNegative)
+                return false;
+
+            if (a._currentNumberSystem != b._currentNumberSystem)
+                return false;
+
+            if (a._integralPart.Length != b._integralPart.Length)
+                return false;
+
+            if (a._fractionalPart.Length != b._fractionalPart.Length)
+                return false;
+
+            for (int i = 0; i < a._integralPart.Length; i++)
+            {
+                if (a._integralPart[i] != b._integralPart[i])
+                    return false;
+            }
+
+            for (int i = 0; i < a._fractionalPart.Length; i++)
+            {
+                if (a._fractionalPart[i] != b._fractionalPart[i])
+                    return false;
+            }
+
+            return true;
+        }
+
+        public bool Equals(Dynamsys other)
+        {
+            return Equals(this, other);
+        }
     }
 }
