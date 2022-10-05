@@ -39,12 +39,14 @@ namespace NumberSystems
             _isNegative = number[0] == '-';
 
             string integralPart = GetIntegralPart(number);
+            integralPart = RemoveExtraFrontZeros(integralPart);
             if (!integralPart.Equals(string.Empty))
                 _integralPart = ToArray(integralPart);
             else
                 _integralPart = Array.Empty<byte>();
 
             string fractionalPart = GetFractionalPart(number);
+            fractionalPart = RemoveExtraRearZeros(fractionalPart);
             if (!fractionalPart.Equals(string.Empty))
                 _fractionalPart = ToArray(fractionalPart);
             else
@@ -99,6 +101,24 @@ namespace NumberSystems
                 return string.Empty;
 
             return number.Substring(separatorPosition + 1);
+        }
+
+        public static string RemoveExtraFrontZeros(string number)
+        {
+            int i = 0;
+            while (i < number.Length && number[i] == '0')
+                i++;
+
+            return number.Substring(i);
+        }
+
+        public static string RemoveExtraRearZeros(string number)
+        {
+            int i = number.Length - 1;
+            while (i >= 0 && number[i] == '0')
+                i--;
+
+            return number.Substring(0, i + 1);
         }
 
         /// <summary>

@@ -380,6 +380,60 @@ namespace NumberSystemsTests
         }
         #endregion
 
+        #region RemoveExtraFrontZeros Method Tests
+        [TestMethod]
+        public void RemoveExtraFrontZeros_Test_00()
+        {
+            string number = "000000";
+            string expectedResult = string.Empty;
+
+            Assert.AreEqual(expectedResult, Dynamsys.RemoveExtraFrontZeros(number));
+        }
+        [TestMethod]
+        public void RemoveExtraFrontZeros_Test_01()
+        {
+            string number = "000014515";
+            string expectedResult = "14515";
+
+            Assert.AreEqual(expectedResult, Dynamsys.RemoveExtraFrontZeros(number));
+        }
+        [TestMethod]
+        public void RemoveExtraFrontZeros_Test_02()
+        {
+            string number = "00001451500000";
+            string expectedResult = "1451500000";
+
+            Assert.AreEqual(expectedResult, Dynamsys.RemoveExtraFrontZeros(number));
+        }
+        #endregion
+
+        #region RemoveExtraRearZeros Method Tests
+        [TestMethod]
+        public void RemoveExtraRearZeros_Test_00()
+        {
+            string number = "000000";
+            string expectedResult = string.Empty;
+
+            Assert.AreEqual(expectedResult, Dynamsys.RemoveExtraRearZeros(number));
+        }
+        [TestMethod]
+        public void RemoveExtraRearZeros_Test_01()
+        {
+            string number = "000014515";
+            string expectedResult = "000014515";
+
+            Assert.AreEqual(expectedResult, Dynamsys.RemoveExtraRearZeros(number));
+        }
+        [TestMethod]
+        public void RemoveExtraRearZeros_Test_02()
+        {
+            string number = "00001451500000";
+            string expectedResult = "000014515";
+
+            Assert.AreEqual(expectedResult, Dynamsys.RemoveExtraRearZeros(number));
+        }
+        #endregion
+
         #region ToArray Method Tests
         [TestMethod]
         public void ToArray_Test_00()
