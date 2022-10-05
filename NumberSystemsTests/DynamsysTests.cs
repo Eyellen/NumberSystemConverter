@@ -438,6 +438,14 @@ namespace NumberSystemsTests
 
             Assert.AreEqual(expectedResult, dynamsys.ToString());
         }
+        [TestMethod]
+        public void ToString_Test_03()
+        {
+            Dynamsys dynamsys = new Dynamsys(".7B8CD", 16);
+            string expectedResult = "0.7B8CD";
+
+            Assert.AreEqual(expectedResult, dynamsys.ToString());
+        }
         #endregion
     }
 }

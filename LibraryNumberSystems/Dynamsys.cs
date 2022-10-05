@@ -145,7 +145,7 @@ namespace NumberSystems
             for (int i = 0; i < _fractionalPart.Length; i++)
                 fractionalPart[i] = _charactersSet[_fractionalPart[i]];
 
-            string result = (_isNegative ? "-" : string.Empty) + new string(integralPart) +
+            string result = (_isNegative ? "-" : string.Empty) + (integralPart.Length > 0 ? new string(integralPart) : "0") +
                 (_fractionalPart.Length > 0 ? "." + new string(fractionalPart) : string.Empty);
 
             return result;
