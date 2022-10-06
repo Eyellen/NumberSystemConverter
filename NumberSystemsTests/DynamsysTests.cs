@@ -153,6 +153,32 @@ namespace NumberSystemsTests
         }
         #endregion
 
+        #region Copy Constructor Tests
+        [TestMethod]
+        public void CopyConstructor_Test_00()
+        {
+            Dynamsys a = null;
+
+            Assert.ThrowsException<NullReferenceException>(() => new Dynamsys(a));
+        }
+        [TestMethod]
+        public void CopyConstructor_Test_01()
+        {
+            Dynamsys a = new Dynamsys("159176", 10);
+            Dynamsys b = new Dynamsys(a);
+
+            Assert.IsTrue(a.Equals(b));
+        }
+        [TestMethod]
+        public void CopyConstructor_Test_02()
+        {
+            Dynamsys a = new Dynamsys("159176.1516", 10);
+            Dynamsys b = new Dynamsys(a);
+
+            Assert.IsTrue(a.Equals(b));
+        }
+        #endregion
+
         #region IsNumber Method Tests
         [TestMethod]
         public void IsNumber_Test00()

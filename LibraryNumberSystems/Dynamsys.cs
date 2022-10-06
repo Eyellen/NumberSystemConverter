@@ -53,6 +53,16 @@ namespace NumberSystems
                 _fractionalPart = Array.Empty<byte>();
         }
 
+        public Dynamsys(Dynamsys other)
+        {
+            this._currentNumberSystem = other._currentNumberSystem;
+            this._isNegative = other._isNegative;
+            this._integralPart = new byte[other._integralPart.Length];
+            this._fractionalPart = new byte[other._fractionalPart.Length];
+            Array.Copy(other._integralPart, this._integralPart, other._integralPart.Length);
+            Array.Copy(other._fractionalPart, this._fractionalPart, other._fractionalPart.Length);
+        }
+
         /// <summary>
         /// Determines whether a string can be a Dynamsys number 
         /// according to characters set.
