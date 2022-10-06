@@ -628,6 +628,15 @@ namespace NumberSystemsTests
             Assert.IsTrue(expectedResult.Equals(Dynamsys.ConvertToDecimalSystem(a)));
             Assert.IsTrue(expectedResult.Equals(a.ConvertToDecimalSystem()));
         }
+        [TestMethod]
+        public void ConvertToDecimalSystem_Test_04()
+        {
+            Dynamsys a = new Dynamsys($"-AF15B,8AC54FC", 16);
+            Dynamsys expectedResult = new Dynamsys("-717147,542073235", 10);
+
+            Assert.IsTrue(expectedResult.Equals(Dynamsys.ConvertToDecimalSystem(a)));
+            Assert.IsTrue(expectedResult.Equals(a.ConvertToDecimalSystem()));
+        }
         #endregion
     }
 }
