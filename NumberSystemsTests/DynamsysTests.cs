@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Globalization;
 using NumberSystems;
 
 namespace NumberSystemsTests
@@ -7,6 +8,8 @@ namespace NumberSystemsTests
     [TestClass]
     public class DynamsysTests
     {
+        NumberFormatInfo _nfi = NumberFormatInfo.CurrentInfo;
+
         #region Dynamsys Constructor Tests
         [TestMethod]
         public void Dynamsys_Constructor_Test_00()
@@ -35,7 +38,7 @@ namespace NumberSystemsTests
         [TestMethod]
         public void Dynamsys_Constructor_Test_03()
         {
-            string number = "AOGH.15PJ1";
+            string number = $"AOGH{_nfi.NumberDecimalSeparator}15PJ1";
             byte numberSystem = 15;
 
 
@@ -44,7 +47,7 @@ namespace NumberSystemsTests
         [TestMethod]
         public void Dynamsys_Constructor_Test_04()
         {
-            string number = "AOGH.15PJ1";
+            string number = $"AOGH{_nfi.NumberDecimalSeparator}15PJ1";
             byte numberSystem = 26;
             bool isNegative = false;
 
@@ -57,7 +60,7 @@ namespace NumberSystemsTests
         [TestMethod]
         public void Dynamsys_Constructor_Test_05()
         {
-            string number = "aFI97AF.9agfA";
+            string number = $"aFI97AF{_nfi.NumberDecimalSeparator}9agfA";
             byte numberSystem = 19;
             bool isNegative = false;
 
@@ -70,7 +73,7 @@ namespace NumberSystemsTests
         [TestMethod]
         public void Dynamsys_Constructor_Test_06()
         {
-            string number = "-aFI97AF.9agfA";
+            string number = $"-aFI97AF{_nfi.NumberDecimalSeparator}9agfA";
             byte numberSystem = 19;
             bool isNegative = true;
 
@@ -83,7 +86,7 @@ namespace NumberSystemsTests
         [TestMethod]
         public void Dynamsys_Constructor_Test_07()
         {
-            string number = "+aFI97AF.9agfA";
+            string number = $"+aFI97AF{_nfi.NumberDecimalSeparator}9agfA";
             byte numberSystem = 19;
             bool isNegative = false;
 
@@ -109,7 +112,7 @@ namespace NumberSystemsTests
         [TestMethod]
         public void Dynamsys_Constructor_Test_09()
         {
-            string number = ".9agfA";
+            string number = $"{_nfi.NumberDecimalSeparator}9agfA";
             byte numberSystem = 19;
             bool isNegative = false;
 
@@ -172,7 +175,7 @@ namespace NumberSystemsTests
         [TestMethod]
         public void CopyConstructor_Test_02()
         {
-            Dynamsys a = new Dynamsys("159176.1516", 10);
+            Dynamsys a = new Dynamsys($"159176{_nfi.NumberDecimalSeparator}1516", 10);
             Dynamsys b = new Dynamsys(a);
 
             Assert.IsTrue(a.Equals(b));
@@ -246,7 +249,7 @@ namespace NumberSystemsTests
         [TestMethod]
         public void IsNumber_Test08()
         {
-            string number = "10.132";
+            string number = $"10{_nfi.NumberDecimalSeparator}132";
             bool isNumber = true;
 
             Assert.IsTrue(isNumber == Dynamsys.IsNumber(number));
@@ -254,7 +257,7 @@ namespace NumberSystemsTests
         [TestMethod]
         public void IsNumber_Test09()
         {
-            string number = "-A.534";
+            string number = $"-A{_nfi.NumberDecimalSeparator}534";
             bool isNumber = true;
 
             Assert.IsTrue(isNumber == Dynamsys.IsNumber(number));
@@ -262,7 +265,7 @@ namespace NumberSystemsTests
         [TestMethod]
         public void IsNumber_Test10()
         {
-            string number = "+0.F3bc";
+            string number = $"+0{_nfi.NumberDecimalSeparator}F3bc";
             bool isNumber = true;
 
             Assert.IsTrue(isNumber == Dynamsys.IsNumber(number));
@@ -326,7 +329,7 @@ namespace NumberSystemsTests
         [TestMethod]
         public void GetIntegralPart_Test_02()
         {
-            string number = "AFG53I.AO1H5109L1K";
+            string number = $"AFG53I{_nfi.NumberDecimalSeparator}AO1H5109L1K";
             string expectedResult = "AFG53I";
 
             Assert.AreEqual(expectedResult, Dynamsys.GetIntegralPart(number));
@@ -334,7 +337,7 @@ namespace NumberSystemsTests
         [TestMethod]
         public void GetIntegralPart_Test_03()
         {
-            string number = "+15OHB.141";
+            string number = $"+15OHB{_nfi.NumberDecimalSeparator}141";
             string expectedResult = "15OHB";
 
             Assert.AreEqual(expectedResult, Dynamsys.GetIntegralPart(number));
@@ -350,7 +353,7 @@ namespace NumberSystemsTests
         [TestMethod]
         public void GetIntegralPart_Test_05()
         {
-            string number = ".9UQG";
+            string number = $"{_nfi.NumberDecimalSeparator}9UQG";
             string expectedResult = string.Empty;
 
             Assert.AreEqual(expectedResult, Dynamsys.GetIntegralPart(number));
@@ -375,7 +378,7 @@ namespace NumberSystemsTests
         [TestMethod]
         public void GetFractionalPart_Test_02()
         {
-            string number = "API.151GH0QIN";
+            string number = $"API{_nfi.NumberDecimalSeparator}151GH0QIN";
             string expectedResult = "151GH0QIN";
 
             Assert.AreEqual(expectedResult, Dynamsys.GetFractionalPart(number));
@@ -391,7 +394,7 @@ namespace NumberSystemsTests
         [TestMethod]
         public void GetFractionalPart_Test_04()
         {
-            string number = ".09A7GA";
+            string number = $"{_nfi.NumberDecimalSeparator}09A7GA";
             string expectedResult = "09A7GA";
 
             Assert.AreEqual(expectedResult, Dynamsys.GetFractionalPart(number));
@@ -399,7 +402,7 @@ namespace NumberSystemsTests
         [TestMethod]
         public void GetFractionalPart_Test_05()
         {
-            string number = "+.09A7GA";
+            string number = $"+{_nfi.NumberDecimalSeparator}09A7GA";
             string expectedResult = "09A7GA";
 
             Assert.AreEqual(expectedResult, Dynamsys.GetFractionalPart(number));
@@ -497,32 +500,32 @@ namespace NumberSystemsTests
         [TestMethod]
         public void ToString_Test_00()
         {
-            Dynamsys dynamsys = new Dynamsys("14.5163", 10);
-            string expectedResult = "14.5163";
+            Dynamsys dynamsys = new Dynamsys($"14{_nfi.NumberDecimalSeparator}5163", 10);
+            string expectedResult = $"14{_nfi.NumberDecimalSeparator}5163";
 
             Assert.AreEqual(expectedResult, dynamsys.ToString());
         }
         [TestMethod]
         public void ToString_Test_01()
         {
-            Dynamsys dynamsys = new Dynamsys("A8F43.7B8CD", 16);
-            string expectedResult = "A8F43.7B8CD";
+            Dynamsys dynamsys = new Dynamsys($"A8F43{_nfi.NumberDecimalSeparator}7B8CD", 16);
+            string expectedResult = $"A8F43{_nfi.NumberDecimalSeparator}7B8CD";
 
             Assert.AreEqual(expectedResult, dynamsys.ToString());
         }
         [TestMethod]
         public void ToString_Test_02()
         {
-            Dynamsys dynamsys = new Dynamsys("-A8F43.7B8CD", 16);
-            string expectedResult = "-A8F43.7B8CD";
+            Dynamsys dynamsys = new Dynamsys($"-A8F43{_nfi.NumberDecimalSeparator}7B8CD", 16);
+            string expectedResult = $"-A8F43{_nfi.NumberDecimalSeparator}7B8CD";
 
             Assert.AreEqual(expectedResult, dynamsys.ToString());
         }
         [TestMethod]
         public void ToString_Test_03()
         {
-            Dynamsys dynamsys = new Dynamsys(".7B8CD", 16);
-            string expectedResult = "0.7B8CD";
+            Dynamsys dynamsys = new Dynamsys($"{_nfi.NumberDecimalSeparator}7B8CD", 16);
+            string expectedResult = $"0{_nfi.NumberDecimalSeparator}7B8CD";
 
             Assert.AreEqual(expectedResult, dynamsys.ToString());
         }
@@ -532,8 +535,8 @@ namespace NumberSystemsTests
         [TestMethod]
         public void Equals_Test_00()
         {
-            Dynamsys a = new Dynamsys("15136.1215", 10);
-            Dynamsys b = new Dynamsys("15136.1215", 10);
+            Dynamsys a = new Dynamsys($"15136{_nfi.NumberDecimalSeparator}1215", 10);
+            Dynamsys b = new Dynamsys($"15136{_nfi.NumberDecimalSeparator}1215", 10);
             bool areEqual = true;
 
             Assert.AreEqual(areEqual, a.Equals(b));
@@ -542,7 +545,7 @@ namespace NumberSystemsTests
         [TestMethod]
         public void Equals_Test_01()
         {
-            Dynamsys a = new Dynamsys("15136.1215", 10);
+            Dynamsys a = new Dynamsys($"15136{_nfi.NumberDecimalSeparator}1215", 10);
             Dynamsys b = new Dynamsys("15136", 10);
             bool areEqual = false;
 
@@ -552,8 +555,8 @@ namespace NumberSystemsTests
         [TestMethod]
         public void Equals_Test_02()
         {
-            Dynamsys a = new Dynamsys("15136.1215", 10);
-            Dynamsys b = new Dynamsys("-15136.1215", 10);
+            Dynamsys a = new Dynamsys($"15136{_nfi.NumberDecimalSeparator}1215", 10);
+            Dynamsys b = new Dynamsys($"-15136{_nfi.NumberDecimalSeparator}1215", 10);
             bool areEqual = false;
 
             Assert.AreEqual(areEqual, a.Equals(b));
@@ -562,8 +565,8 @@ namespace NumberSystemsTests
         [TestMethod]
         public void Equals_Test_03()
         {
-            Dynamsys a = new Dynamsys("15136.1215", 10);
-            Dynamsys b = new Dynamsys("15136.1215", 12);
+            Dynamsys a = new Dynamsys($"15136{_nfi.NumberDecimalSeparator}1215", 10);
+            Dynamsys b = new Dynamsys($"15136{_nfi.NumberDecimalSeparator}1215", 12);
             bool areEqual = false;
 
             Assert.AreEqual(areEqual, a.Equals(b));
@@ -572,8 +575,8 @@ namespace NumberSystemsTests
         [TestMethod]
         public void Equals_Test_04()
         {
-            Dynamsys a = new Dynamsys(".1215", 10);
-            Dynamsys b = new Dynamsys(".1215", 10);
+            Dynamsys a = new Dynamsys($"{_nfi.NumberDecimalSeparator}1215", 10);
+            Dynamsys b = new Dynamsys($"{_nfi.NumberDecimalSeparator}1215", 10);
             bool areEqual = true;
 
             Assert.AreEqual(areEqual, a.Equals(b));
@@ -583,7 +586,7 @@ namespace NumberSystemsTests
         public void Equals_Test_05()
         {
             Dynamsys a = null;
-            Dynamsys b = new Dynamsys(".1215", 10);
+            Dynamsys b = new Dynamsys($"{_nfi.NumberDecimalSeparator}1215", 10);
 
             Assert.ThrowsException<NullReferenceException>(() => a.Equals(b));
             Assert.ThrowsException<NullReferenceException>(() => Dynamsys.Equals(a, b));

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Text.RegularExpressions;
 
 namespace NumberSystems
@@ -10,8 +11,26 @@ namespace NumberSystems
     /// </summary>
     public class Dynamsys
     {
+        private static NumberFormatInfo _nfi = NumberFormatInfo.CurrentInfo;
+
         // Set of symbols the Dynamsys can consist of.
         private static string _charactersSet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+        private static string _pattern = null;
+        private static string Pattern
+        {
+            get
+            {
+                if (_pattern != null && _pattern != string.Empty)
+                    return _pattern;
+
+                _pattern = @"^[";
+                _pattern += Regex.Escape(_nfi.PositiveSign + _nfi.NegativeSign) + @"]?([0-9_A-Z]*";
+                _pattern += Regex.Escape(_nfi.NumberDecimalSeparator) + @"?[0-9_A-Z]+){1}$";
+
+                return _pattern;
+            }
+        }
 
         private byte _currentNumberSystem;
         private bool _isNegative;
@@ -36,7 +55,7 @@ namespace NumberSystems
             }
 
             _currentNumberSystem = numberSystem;
-            _isNegative = number[0] == '-';
+            _isNegative = number.Contains(_nfi.NegativeSign);
 
             string integralPart = GetIntegralPart(number);
             integralPart = RemoveExtraFrontZeros(integralPart);
@@ -77,8 +96,7 @@ namespace NumberSystems
             if (number.Equals(string.Empty))
                 throw new Exception("The number argument doesn't contain any character.");
 
-            Regex regex = new Regex(@"^[\+-]?([0-9_A-Z]*\.?[0-9_A-Z]+){1}$",
-                RegexOptions.Compiled | RegexOptions.IgnoreCase);
+            Regex regex = new Regex(Pattern, RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
             return regex.IsMatch(number);
         }
@@ -89,10 +107,10 @@ namespace NumberSystems
                 throw new Exception($"The number argument contains not suitable for {nameof(Dynamsys)} characters.");
 
             // Remove number sign if it has one
-            if (number[0] == '+' || number[0] == '-')
+            if (number.Contains(_nfi.PositiveSign) || number.Contains(_nfi.NegativeSign))
                 number = number.Substring(1);
 
-            int separatorPosition = number.IndexOf('.');
+            int separatorPosition = number.IndexOf(_nfi.NumberDecimalSeparator);
 
             if (separatorPosition <= -1)
                 return number;
@@ -105,7 +123,7 @@ namespace NumberSystems
             if (!IsNumber(number))
                 throw new Exception($"The number argument contains not suitable for {nameof(Dynamsys)} characters.");
 
-            int separatorPosition = number.IndexOf('.');
+            int separatorPosition = number.IndexOf(_nfi.NumberDecimalSeparator);
 
             if (separatorPosition <= -1)
                 return string.Empty;
@@ -175,8 +193,10 @@ namespace NumberSystems
             for (int i = 0; i < _fractionalPart.Length; i++)
                 fractionalPart[i] = _charactersSet[_fractionalPart[i]];
 
-            string result = (_isNegative ? "-" : string.Empty) + (integralPart.Length > 0 ? new string(integralPart) : "0") +
-                (_fractionalPart.Length > 0 ? "." + new string(fractionalPart) : string.Empty);
+            string result = (_isNegative ? _nfi.NegativeSign : string.Empty) +
+                (integralPart.Length > 0 ? new string(integralPart) : "0") +
+                (_fractionalPart.Length > 0 ? _nfi.NumberDecimalSeparator +
+                new string(fractionalPart) : string.Empty);
 
             return result;
         }
