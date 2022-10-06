@@ -592,5 +592,42 @@ namespace NumberSystemsTests
             Assert.ThrowsException<NullReferenceException>(() => Dynamsys.Equals(a, b));
         }
         #endregion
+
+        #region ConvertToDecimalSystem Method Tests
+        [TestMethod]
+        public void ConvertToDecimalSystem_Test_00()
+        {
+            Dynamsys a = null;
+
+            Assert.ThrowsException<NullReferenceException>(() => Dynamsys.ConvertToDecimalSystem(a));
+        }
+        [TestMethod]
+        public void ConvertToDecimalSystem_Test_01()
+        {
+            Dynamsys a = new Dynamsys($"AB1515", 16);
+            Dynamsys expectedResult = new Dynamsys("11212053", 10);
+
+            Assert.IsTrue(expectedResult.Equals(Dynamsys.ConvertToDecimalSystem(a)));
+            Assert.IsTrue(expectedResult.Equals(a.ConvertToDecimalSystem()));
+        }
+        [TestMethod]
+        public void ConvertToDecimalSystem_Test_02()
+        {
+            Dynamsys a = new Dynamsys($",AB1515", 16);
+            Dynamsys expectedResult = new Dynamsys("0,668290436267853", 10);
+
+            Assert.IsTrue(expectedResult.Equals(Dynamsys.ConvertToDecimalSystem(a)));
+            Assert.IsTrue(expectedResult.Equals(a.ConvertToDecimalSystem()));
+        }
+        [TestMethod]
+        public void ConvertToDecimalSystem_Test_03()
+        {
+            Dynamsys a = new Dynamsys($"AF15B,8AC54FC", 16);
+            Dynamsys expectedResult = new Dynamsys("717147,542073235", 10);
+
+            Assert.IsTrue(expectedResult.Equals(Dynamsys.ConvertToDecimalSystem(a)));
+            Assert.IsTrue(expectedResult.Equals(a.ConvertToDecimalSystem()));
+        }
+        #endregion
     }
 }

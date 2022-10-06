@@ -224,5 +224,38 @@ namespace NumberSystems
         {
             return Equals(this, other);
         }
+
+        public static Dynamsys ConvertToDecimalSystem(Dynamsys a)
+        {
+            byte fromSystem = a._currentNumberSystem;
+
+            byte[] integralPart = a._integralPart;
+            byte[] fractionalPart = a._fractionalPart;
+            double result = 0;
+
+            // Converting integral part
+            for (int i = 0; i < integralPart.Length; i++)
+            {
+                result += integralPart[integralPart.Length - i - 1] * Math.Pow(fromSystem, i);
+            }
+
+            // Converting fractional part
+            for (int i = 0; i < fractionalPart.Length; i++)
+            {
+                result += fractionalPart[i] * Math.Pow(fromSystem, -i - 1);
+            }
+
+            return new Dynamsys((a._isNegative ? _nfi.NegativeSign : string.Empty) + result.ToString(), 10);
+        }
+
+        public Dynamsys ConvertToDecimalSystem()
+        {
+            Dynamsys result = ConvertToDecimalSystem(this);
+            this._currentNumberSystem = result._currentNumberSystem;
+            this._isNegative = result._isNegative;
+            this._integralPart = result._integralPart;
+            this._fractionalPart = result._fractionalPart;
+            return this;
+        }
     }
 }
