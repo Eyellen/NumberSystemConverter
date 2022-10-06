@@ -511,6 +511,7 @@ namespace NumberSystemsTests
             bool areEqual = true;
 
             Assert.AreEqual(areEqual, a.Equals(b));
+            Assert.AreEqual(areEqual, Dynamsys.Equals(a, b));
         }
         [TestMethod]
         public void Equals_Test_01()
@@ -520,6 +521,7 @@ namespace NumberSystemsTests
             bool areEqual = false;
 
             Assert.AreEqual(areEqual, a.Equals(b));
+            Assert.AreEqual(areEqual, Dynamsys.Equals(a, b));
         }
         [TestMethod]
         public void Equals_Test_02()
@@ -529,6 +531,7 @@ namespace NumberSystemsTests
             bool areEqual = false;
 
             Assert.AreEqual(areEqual, a.Equals(b));
+            Assert.AreEqual(areEqual, Dynamsys.Equals(a, b));
         }
         [TestMethod]
         public void Equals_Test_03()
@@ -538,6 +541,7 @@ namespace NumberSystemsTests
             bool areEqual = false;
 
             Assert.AreEqual(areEqual, a.Equals(b));
+            Assert.AreEqual(areEqual, Dynamsys.Equals(a, b));
         }
         [TestMethod]
         public void Equals_Test_04()
@@ -547,6 +551,7 @@ namespace NumberSystemsTests
             bool areEqual = true;
 
             Assert.AreEqual(areEqual, a.Equals(b));
+            Assert.AreEqual(areEqual, Dynamsys.Equals(a, b));
         }
         [TestMethod]
         public void Equals_Test_05()
@@ -555,6 +560,7 @@ namespace NumberSystemsTests
             Dynamsys b = new Dynamsys(".1215", 10);
 
             Assert.ThrowsException<NullReferenceException>(() => a.Equals(b));
+            Assert.ThrowsException<NullReferenceException>(() => Dynamsys.Equals(a, b));
         }
         #endregion
     }
