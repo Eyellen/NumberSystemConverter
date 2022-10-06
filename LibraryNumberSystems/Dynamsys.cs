@@ -16,21 +16,9 @@ namespace NumberSystems
         // Set of symbols the Dynamsys can consist of.
         private static string _charactersSet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-        private static string _pattern = null;
-        private static string Pattern
-        {
-            get
-            {
-                if (_pattern != null && _pattern != string.Empty)
-                    return _pattern;
-
-                _pattern = @"^[";
-                _pattern += Regex.Escape(_nfi.PositiveSign + _nfi.NegativeSign) + @"]?([0-9_A-Z]*";
-                _pattern += Regex.Escape(_nfi.NumberDecimalSeparator) + @"?[0-9_A-Z]+){1}$";
-
-                return _pattern;
-            }
-        }
+        private static string _pattern = @"^[" +
+            Regex.Escape(_nfi.PositiveSign + _nfi.NegativeSign) + @"]?([0-9_A-Z]*" +
+            Regex.Escape(_nfi.NumberDecimalSeparator) + @"?[0-9_A-Z]+){1}$";
 
         private byte _currentNumberSystem;
         private bool _isNegative;
@@ -96,7 +84,7 @@ namespace NumberSystems
             if (number.Equals(string.Empty))
                 throw new Exception("The number argument doesn't contain any character.");
 
-            Regex regex = new Regex(Pattern, RegexOptions.Compiled | RegexOptions.IgnoreCase);
+            Regex regex = new Regex(_pattern, RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
             return regex.IsMatch(number);
         }
