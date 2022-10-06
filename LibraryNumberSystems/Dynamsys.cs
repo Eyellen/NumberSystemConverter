@@ -95,8 +95,10 @@ namespace NumberSystems
                 throw new Exception($"The number argument contains not suitable for {nameof(Dynamsys)} characters.");
 
             // Remove number sign if it has one
-            if (number.Contains(_nfi.PositiveSign) || number.Contains(_nfi.NegativeSign))
-                number = number.Substring(1);
+            if (number.Contains(_nfi.PositiveSign))
+                number = number.Substring(_nfi.PositiveSign.Length);
+            if (number.Contains(_nfi.NegativeSign))
+                number = number.Substring(_nfi.NegativeSign.Length);
 
             int separatorPosition = number.IndexOf(_nfi.NumberDecimalSeparator);
 
@@ -116,7 +118,7 @@ namespace NumberSystems
             if (separatorPosition <= -1)
                 return string.Empty;
 
-            return number.Substring(separatorPosition + 1);
+            return number.Substring(separatorPosition + _nfi.NumberDecimalSeparator.Length);
         }
 
         public static string RemoveExtraFrontZeros(string number)
