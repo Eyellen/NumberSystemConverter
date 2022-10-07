@@ -225,7 +225,7 @@ namespace NumberSystems
             return Equals(this, other);
         }
 
-        public static Dynamsys ConvertToDecimalSystem(Dynamsys a)
+        public static Dynamsys ConvertToDecimalSystem(in Dynamsys a)
         {
             byte fromSystem = a._currentNumberSystem;
 
@@ -251,6 +251,62 @@ namespace NumberSystems
         public Dynamsys ConvertToDecimalSystem()
         {
             Dynamsys result = ConvertToDecimalSystem(this);
+            this._currentNumberSystem = result._currentNumberSystem;
+            this._isNegative = result._isNegative;
+            this._integralPart = result._integralPart;
+            this._fractionalPart = result._fractionalPart;
+            return this;
+        }
+
+        public static Dynamsys ConvertToCustomSystem(in Dynamsys a, byte numberSystem, int decimalSigns = 15)
+        {
+            Dynamsys b = new Dynamsys(a);
+
+            if (b._currentNumberSystem != 10)
+                b.ConvertToDecimalSystem();
+
+            if (numberSystem == 10)
+                return b;
+
+            double number = Math.Abs(double.Parse(b.ToString()));
+
+            double integralPart = Math.Truncate(number);
+            double fractionalPart = number - integralPart;
+
+            string result = string.Empty;
+
+            // Converting integral part
+            while (integralPart > 0)
+            {
+                result = _charactersSet[(int)(integralPart % numberSystem)] + result;
+
+                integralPart /= numberSystem;
+            }
+
+            // Converting fractional part
+            if(b._fractionalPart.Length > 0)
+            {
+                result += _nfi.NumberDecimalSeparator;
+
+                int signs = 0;
+                while (signs < decimalSigns)
+                {
+                    double product = fractionalPart * numberSystem;
+
+                    result += _charactersSet[(int)Math.Truncate(product)];
+
+                    fractionalPart = product - Math.Truncate(product);
+
+                    signs++;
+                }
+            }
+            
+            return new Dynamsys((b._isNegative ? _nfi.NegativeSign : string.Empty) + result, numberSystem);
+        }
+
+        public Dynamsys ConvertToCustomSystem(byte numberSystem)
+        {
+            Dynamsys result = ConvertToCustomSystem(this, numberSystem);
             this._currentNumberSystem = result._currentNumberSystem;
             this._isNegative = result._isNegative;
             this._integralPart = result._integralPart;

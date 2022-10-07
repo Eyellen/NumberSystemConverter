@@ -600,6 +600,7 @@ namespace NumberSystemsTests
             Dynamsys a = null;
 
             Assert.ThrowsException<NullReferenceException>(() => Dynamsys.ConvertToDecimalSystem(a));
+            Assert.ThrowsException<NullReferenceException>(() => a.ConvertToDecimalSystem());
         }
         [TestMethod]
         public void ConvertToDecimalSystem_Test_01()
@@ -636,6 +637,80 @@ namespace NumberSystemsTests
 
             Assert.IsTrue(expectedResult.Equals(Dynamsys.ConvertToDecimalSystem(a)));
             Assert.IsTrue(expectedResult.Equals(a.ConvertToDecimalSystem()));
+        }
+        [TestMethod]
+        public void ConvertToDecimalSystem_Test_05()
+        {
+            Dynamsys a = new Dynamsys($"AF15B,8AC54FC", 16);
+            Dynamsys expectedResult = new Dynamsys("717147,542073235", 10);
+
+            Assert.IsTrue(expectedResult.Equals(Dynamsys.ConvertToDecimalSystem(a)));
+            Assert.IsTrue(expectedResult.Equals(a.ConvertToDecimalSystem()));
+        }
+        #endregion
+
+        #region ConvertToCustomSystem Method Tests
+        [TestMethod]
+        public void ConvertToCustomSystem_Test_00()
+        {
+            Dynamsys a = null;
+
+            Assert.ThrowsException<NullReferenceException>(() => Dynamsys.ConvertToCustomSystem(a, 10));
+            Assert.ThrowsException<NullReferenceException>(() => a.ConvertToCustomSystem(10));
+        }
+        [TestMethod]
+        public void ConvertToCustomSystem_Test_01()
+        {
+            Dynamsys a = new Dynamsys($"AF15B,8AC54FC", 16);
+            Dynamsys expectedResult = new Dynamsys("717147,542073235", 10);
+
+            Assert.IsTrue(expectedResult.Equals(Dynamsys.ConvertToCustomSystem(a, 10)));
+            Assert.IsTrue(expectedResult.Equals(a.ConvertToCustomSystem(10)));
+        }
+        [TestMethod]
+        public void ConvertToCustomSystem_Test_02()
+        {
+            Dynamsys a = new Dynamsys($"AB5132F14", 16);
+            Dynamsys expectedResult = new Dynamsys("45987606292", 10);
+
+            Assert.IsTrue(expectedResult.Equals(Dynamsys.ConvertToCustomSystem(a, 10)));
+            Assert.IsTrue(expectedResult.Equals(a.ConvertToCustomSystem(10)));
+        }
+        [TestMethod]
+        public void ConvertToCustomSystem_Test_03()
+        {
+            Dynamsys a = new Dynamsys($"1246753255", 8);
+            Dynamsys expectedResult = new Dynamsys("A9BD6AD", 16);
+
+            Assert.IsTrue(expectedResult.Equals(Dynamsys.ConvertToCustomSystem(a, 16)));
+            Assert.IsTrue(expectedResult.Equals(a.ConvertToCustomSystem(16)));
+        }
+        [TestMethod]
+        public void ConvertToCustomSystem_Test_04()
+        {
+            Dynamsys a = new Dynamsys($"110010101010011101", 2);
+            Dynamsys expectedResult = new Dynamsys("207517", 10);
+
+            Assert.IsTrue(expectedResult.Equals(Dynamsys.ConvertToCustomSystem(a, 10)));
+            Assert.IsTrue(expectedResult.Equals(a.ConvertToCustomSystem(10)));
+        }
+        [TestMethod]
+        public void ConvertToCustomSystem_Test_05()
+        {
+            Dynamsys a = new Dynamsys($"1102021,1200120", 3);
+            Dynamsys expectedResult = new Dynamsys("2011,4377514147745", 8);
+
+            Assert.IsTrue(expectedResult.Equals(Dynamsys.ConvertToCustomSystem(a, 8)));
+            Assert.IsTrue(expectedResult.Equals(a.ConvertToCustomSystem(8)));
+        }
+        [TestMethod]
+        public void ConvertToCustomSystem_Test_06()
+        {
+            Dynamsys a = new Dynamsys($"-1102021,1200120", 3);
+            Dynamsys expectedResult = new Dynamsys("-2011,4377514147745", 8);
+
+            Assert.IsTrue(expectedResult.Equals(Dynamsys.ConvertToCustomSystem(a, 8)));
+            Assert.IsTrue(expectedResult.Equals(a.ConvertToCustomSystem(8)));
         }
         #endregion
     }
