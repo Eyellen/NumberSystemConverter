@@ -122,6 +122,14 @@ namespace NumberSystemsTests
             AssertDynamsys_Constructor(number, expectedIntegralPart,
                 expectedFractionalPart, numberSystem, isNegative);
         }
+        [TestMethod]
+        public void Dynamsys_Constructor_Test_10()
+        {
+            string number = "A";
+            byte numberSystem = 100;
+
+            Assert.ThrowsException<Exception>(() => new Dynamsys(number, numberSystem));
+        }
 
         private void AssertDynamsys_Constructor(string number, byte[] expectedIntegralPart,
             byte[] expectedFractionalPart, byte numberSystem, bool isNegative)

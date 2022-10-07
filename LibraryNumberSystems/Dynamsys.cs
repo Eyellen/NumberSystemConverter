@@ -33,6 +33,9 @@ namespace NumberSystems
         {
             number = number.ToUpper();
 
+            if (numberSystem >= _charactersSet.Length)
+                throw new Exception($"Cannot create Dynamsys. Max number system is {_charactersSet.Length - 1}");
+
             if (!IsNumber(number))
                 throw new Exception("Cannot create Dynamsys because argument \"number\" contains inappropriate characters.");
 
