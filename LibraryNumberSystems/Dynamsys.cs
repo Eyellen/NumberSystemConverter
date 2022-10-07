@@ -304,9 +304,9 @@ namespace NumberSystems
             return new Dynamsys((b._isNegative ? _nfi.NegativeSign : string.Empty) + result, numberSystem);
         }
 
-        public Dynamsys ConvertToCustomSystem(byte numberSystem)
+        public Dynamsys ConvertToCustomSystem(byte numberSystem, int decimalSigns = 15)
         {
-            Dynamsys result = ConvertToCustomSystem(this, numberSystem);
+            Dynamsys result = ConvertToCustomSystem(this, numberSystem, decimalSigns);
             this._currentNumberSystem = result._currentNumberSystem;
             this._isNegative = result._isNegative;
             this._integralPart = result._integralPart;
