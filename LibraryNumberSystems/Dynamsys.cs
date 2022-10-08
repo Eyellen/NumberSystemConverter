@@ -240,7 +240,7 @@ namespace NumberSystems
             return Equals(this, other);
         }
 
-        public static Dynamsys ConvertToDecimalSystem(in Dynamsys a)
+        public static Dynamsys ConvertToDecimalSystem(Dynamsys a)
         {
             byte fromSystem = a.CurrentNumberSystem;
 
@@ -273,7 +273,7 @@ namespace NumberSystems
             return this;
         }
 
-        public static Dynamsys ConvertToCustomSystem(in Dynamsys a, byte numberSystem, int decimalSigns = 15)
+        public static Dynamsys ConvertToCustomSystem(Dynamsys a, byte numberSystem, int decimalSigns = 15)
         {
             Dynamsys b = new Dynamsys(a);
 
