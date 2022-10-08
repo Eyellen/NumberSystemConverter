@@ -20,8 +20,8 @@ namespace NumberSystems
             Regex.Escape(_nfi.PositiveSign + _nfi.NegativeSign) + @"]?([0-9_A-Z]*" +
             Regex.Escape(_nfi.NumberDecimalSeparator) + @"?[0-9_A-Z]+){1}$";
 
-        private byte _currentNumberSystem;
-        private bool _isNegative;
+        public byte CurrentNumberSystem { get; private set; }
+        public bool IsNegative { get; private set; }
         private byte[] _integralPart;
         private byte[] _fractionalPart;
 
@@ -45,8 +45,8 @@ namespace NumberSystems
                     throw new Exception("The number argument can't contain numbers bigger than number system.");
             }
 
-            _currentNumberSystem = numberSystem;
-            _isNegative = number.Contains(_nfi.NegativeSign);
+            CurrentNumberSystem = numberSystem;
+            IsNegative = number.Contains(_nfi.NegativeSign);
 
             string integralPart = GetIntegralPart(number);
             integralPart = RemoveExtraFrontZeros(integralPart);
@@ -65,8 +65,8 @@ namespace NumberSystems
 
         public Dynamsys(Dynamsys other)
         {
-            this._currentNumberSystem = other._currentNumberSystem;
-            this._isNegative = other._isNegative;
+            this.CurrentNumberSystem = other.CurrentNumberSystem;
+            this.IsNegative = other.IsNegative;
             this._integralPart = new byte[other._integralPart.Length];
             this._fractionalPart = new byte[other._fractionalPart.Length];
             Array.Copy(other._integralPart, this._integralPart, other._integralPart.Length);
@@ -186,7 +186,7 @@ namespace NumberSystems
             for (int i = 0; i < _fractionalPart.Length; i++)
                 fractionalPart[i] = _charactersSet[_fractionalPart[i]];
 
-            string result = (_isNegative ? _nfi.NegativeSign : string.Empty) +
+            string result = (IsNegative ? _nfi.NegativeSign : string.Empty) +
                 (integralPart.Length > 0 ? new string(integralPart) : "0") +
                 (_fractionalPart.Length > 0 ? _nfi.NumberDecimalSeparator +
                 new string(fractionalPart) : string.Empty);
@@ -194,12 +194,18 @@ namespace NumberSystems
             return result;
         }
 
+        /// <summary>
+        /// One Dynamsys equals to another if their number systems are equal,
+        /// they are both positive/negative and have the same values in integral
+        /// and fractional part.
+        /// </summary>
+        /// <returns></returns>
         public static bool Equals(Dynamsys a, Dynamsys b)
         {
-            if (a._isNegative != b._isNegative)
+            if (a.IsNegative != b.IsNegative)
                 return false;
 
-            if (a._currentNumberSystem != b._currentNumberSystem)
+            if (a.CurrentNumberSystem != b.CurrentNumberSystem)
                 return false;
 
             if (a._integralPart.Length != b._integralPart.Length)
@@ -223,6 +229,12 @@ namespace NumberSystems
             return true;
         }
 
+        /// <summary>
+        /// One Dynamsys equals to another if their number systems are equal,
+        /// they are both positive/negative and have the same values in integral
+        /// and fractional part.
+        /// </summary>
+        /// <returns></returns>
         public bool Equals(Dynamsys other)
         {
             return Equals(this, other);
@@ -230,7 +242,7 @@ namespace NumberSystems
 
         public static Dynamsys ConvertToDecimalSystem(in Dynamsys a)
         {
-            byte fromSystem = a._currentNumberSystem;
+            byte fromSystem = a.CurrentNumberSystem;
 
             byte[] integralPart = a._integralPart;
             byte[] fractionalPart = a._fractionalPart;
@@ -248,14 +260,14 @@ namespace NumberSystems
                 result += fractionalPart[i] * Math.Pow(fromSystem, -i - 1);
             }
 
-            return new Dynamsys((a._isNegative ? _nfi.NegativeSign : string.Empty) + result.ToString(), 10);
+            return new Dynamsys((a.IsNegative ? _nfi.NegativeSign : string.Empty) + result.ToString(), 10);
         }
 
         public Dynamsys ConvertToDecimalSystem()
         {
             Dynamsys result = ConvertToDecimalSystem(this);
-            this._currentNumberSystem = result._currentNumberSystem;
-            this._isNegative = result._isNegative;
+            this.CurrentNumberSystem = result.CurrentNumberSystem;
+            this.IsNegative = result.IsNegative;
             this._integralPart = result._integralPart;
             this._fractionalPart = result._fractionalPart;
             return this;
@@ -265,7 +277,7 @@ namespace NumberSystems
         {
             Dynamsys b = new Dynamsys(a);
 
-            if (b._currentNumberSystem != 10)
+            if (b.CurrentNumberSystem != 10)
                 b.ConvertToDecimalSystem();
 
             if (numberSystem == 10)
@@ -304,14 +316,14 @@ namespace NumberSystems
                 }
             }
             
-            return new Dynamsys((b._isNegative ? _nfi.NegativeSign : string.Empty) + result, numberSystem);
+            return new Dynamsys((b.IsNegative ? _nfi.NegativeSign : string.Empty) + result, numberSystem);
         }
 
         public Dynamsys ConvertToCustomSystem(byte numberSystem, int decimalSigns = 15)
         {
             Dynamsys result = ConvertToCustomSystem(this, numberSystem, decimalSigns);
-            this._currentNumberSystem = result._currentNumberSystem;
-            this._isNegative = result._isNegative;
+            this.CurrentNumberSystem = result.CurrentNumberSystem;
+            this.IsNegative = result.IsNegative;
             this._integralPart = result._integralPart;
             this._fractionalPart = result._fractionalPart;
             return this;
