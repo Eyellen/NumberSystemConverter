@@ -137,8 +137,8 @@ namespace NumberSystemsTests
             Dynamsys dynamsys = new Dynamsys(number, numberSystem);
 
             PrivateObject privateDynamsys = new PrivateObject(dynamsys);
-            byte actualNumberSystem = (byte)privateDynamsys.GetField("_currentNumberSystem");
-            bool actualIsNegative = (bool)privateDynamsys.GetField("_isNegative");
+            byte actualNumberSystem = (byte)privateDynamsys.GetProperty("CurrentNumberSystem");
+            bool actualIsNegative = (bool)privateDynamsys.GetProperty("IsNegative");
             byte[] actualIntegralPart = (byte[])privateDynamsys.GetField("_integralPart");
             byte[] actualFractionalPart = (byte[])privateDynamsys.GetField("_fractionalPart");
 
