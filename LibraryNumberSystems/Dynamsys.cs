@@ -34,15 +34,15 @@ namespace NumberSystems
             number = number.ToUpper();
 
             if (numberSystem >= _charactersSet.Length)
-                throw new Exception($"Cannot create Dynamsys. Max number system is {_charactersSet.Length - 1}");
+                throw new WrongNumberSystemException($"Cannot create Dynamsys. Max number system is {_charactersSet.Length - 1}");
 
             if (!IsNumber(number))
-                throw new Exception("Cannot create Dynamsys because argument \"number\" contains inappropriate characters.");
+                throw new InappropriateCharactersException("Cannot create Dynamsys because argument \"number\" contains inappropriate characters.");
 
             foreach (char character in number)
             {
                 if (_charactersSet.IndexOf(character) >= numberSystem)
-                    throw new Exception("The number argument can't contain numbers bigger than number system.");
+                    throw new WrongNumberSystemException("The number argument can't contain numbers bigger than number system.");
             }
 
             CurrentNumberSystem = numberSystem;
@@ -85,7 +85,7 @@ namespace NumberSystems
                 throw new NullReferenceException("The number agrument is null.");
 
             if (number.Equals(string.Empty))
-                throw new Exception("The number argument doesn't contain any character.");
+                throw new ArgumentException("The number argument doesn't contain any character.");
 
             Regex regex = new Regex(_pattern, RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
@@ -95,7 +95,7 @@ namespace NumberSystems
         public static string GetIntegralPart(string number)
         {
             if (!IsNumber(number))
-                throw new Exception($"The number argument contains not suitable for {nameof(Dynamsys)} characters.");
+                throw new InappropriateCharactersException($"The number argument contains not suitable for {nameof(Dynamsys)} characters.");
 
             // Remove number sign if it has one
             if (number.Contains(_nfi.PositiveSign))
@@ -114,7 +114,7 @@ namespace NumberSystems
         public static string GetFractionalPart(string number)
         {
             if (!IsNumber(number))
-                throw new Exception($"The number argument contains not suitable for {nameof(Dynamsys)} characters.");
+                throw new InappropriateCharactersException($"The number argument contains not suitable for {nameof(Dynamsys)} characters.");
 
             int separatorPosition = number.IndexOf(_nfi.NumberDecimalSeparator);
 
@@ -151,11 +151,11 @@ namespace NumberSystems
         public static byte[] ToArray(string number)
         {
             if (!IsNumber(number))
-                throw new Exception($"The number argument contains not suitable for {nameof(Dynamsys)} characters.");
+                throw new InappropriateCharactersException($"The number argument contains not suitable for {nameof(Dynamsys)} characters.");
 
             Regex regex = new Regex(@"^[0-9_A-Z]+$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
             if (!regex.IsMatch(number))
-                throw new Exception("The number have to consisnt only of characters from characters set. " +
+                throw new InappropriateCharactersException("The number have to consisnt only of characters from characters set. " +
                     "i.e. it has to be either integral part or fractional part.");
 
             number = number.ToUpper();
@@ -167,7 +167,7 @@ namespace NumberSystems
                 int code = _charactersSet.IndexOf(number[i]);
 
                 if (code <= -1)
-                    throw new Exception("The number argument contains inappropriate character(s).");
+                    throw new InappropriateCharactersException("The number argument contains inappropriate character(s).");
 
                 arr[i] = (byte)code;
             }
