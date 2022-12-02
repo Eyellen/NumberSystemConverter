@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace NumberSystems
 {
-    class WrongNumberSystemException : Exception
+    public class WrongNumberSystemException : Exception
     {
         public WrongNumberSystemException(string message) :
             base(message)
         { }
     }
 
-    class InappropriateCharactersException : Exception
+    public class InappropriateCharactersException : Exception
     {
         public InappropriateCharactersException(string message) :
             base(message)

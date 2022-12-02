@@ -25,7 +25,7 @@ namespace NumberSystemsTests
             string number = string.Empty;
             byte numberSystem = 10;
 
-            Assert.ThrowsException<Exception>(() => new Dynamsys(number, numberSystem));
+            Assert.ThrowsException<ArgumentException>(() => new Dynamsys(number, numberSystem));
         }
         [TestMethod]
         public void Dynamsys_Constructor_Test_02()
@@ -33,7 +33,7 @@ namespace NumberSystemsTests
             string number = "aj_)AGF-a0G";
             byte numberSystem = 10;
 
-            Assert.ThrowsException<Exception>(() => new Dynamsys(number, numberSystem));
+            Assert.ThrowsException<InappropriateCharactersException>(() => new Dynamsys(number, numberSystem));
         }
         [TestMethod]
         public void Dynamsys_Constructor_Test_03()
@@ -42,7 +42,7 @@ namespace NumberSystemsTests
             byte numberSystem = 15;
 
 
-            Assert.ThrowsException<Exception>(() => new Dynamsys(number, numberSystem));
+            Assert.ThrowsException<WrongNumberSystemException>(() => new Dynamsys(number, numberSystem));
         }
         [TestMethod]
         public void Dynamsys_Constructor_Test_04()
@@ -128,7 +128,7 @@ namespace NumberSystemsTests
             string number = "A";
             byte numberSystem = 100;
 
-            Assert.ThrowsException<Exception>(() => new Dynamsys(number, numberSystem));
+            Assert.ThrowsException<WrongNumberSystemException>(() => new Dynamsys(number, numberSystem));
         }
 
         private void AssertDynamsys_Constructor(string number, byte[] expectedIntegralPart,
@@ -283,7 +283,7 @@ namespace NumberSystemsTests
         {
             string number = string.Empty;
 
-            Assert.ThrowsException<Exception>(() => Dynamsys.IsNumber(number));
+            Assert.ThrowsException<ArgumentException>(() => Dynamsys.IsNumber(number));
         }
         [TestMethod]
         public void IsNumber_Test12()
@@ -332,7 +332,7 @@ namespace NumberSystemsTests
         {
             string number = string.Empty;
 
-            Assert.ThrowsException<Exception>(() => Dynamsys.GetIntegralPart(number));
+            Assert.ThrowsException<ArgumentException>(() => Dynamsys.GetIntegralPart(number));
         }
         [TestMethod]
         public void GetIntegralPart_Test_02()
@@ -381,7 +381,7 @@ namespace NumberSystemsTests
         {
             string number = string.Empty;
 
-            Assert.ThrowsException<Exception>(() => Dynamsys.GetFractionalPart(number));
+            Assert.ThrowsException<ArgumentException>(() => Dynamsys.GetFractionalPart(number));
         }
         [TestMethod]
         public void GetFractionalPart_Test_02()
@@ -484,7 +484,7 @@ namespace NumberSystemsTests
         {
             string number = string.Empty;
 
-            Assert.ThrowsException<Exception>(() => Dynamsys.ToArray(number));
+            Assert.ThrowsException<ArgumentException>(() => Dynamsys.ToArray(number));
         }
         [TestMethod]
         public void ToArray_Test_02()
