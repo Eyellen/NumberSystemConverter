@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LibraryNumberSystems;
+using NumberSystems;
 
 namespace ConsoleNumberSystems
 {
@@ -11,8 +11,24 @@ namespace ConsoleNumberSystems
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(NumberSystems.ToDecimalSystem("17,435", 8));
+            //Console.WriteLine(NumberSystems.ToDecimalSystem("17,435", 8));
             //Console.WriteLine(NumberSystems.ToCustomSystem("17,435", 8));
+
+            //Dynamsys dynamsys = new Dynamsys("00000.AGFI6", 19);
+            //Console.WriteLine(dynamsys.ToString());
+
+            ////dynamsys = new Dynamsys(".AGFI6", 19);
+            ////Console.WriteLine(dynamsys.ToString());
+
+            //dynamsys = new Dynamsys("AGFI6", 19);
+            //Console.WriteLine(dynamsys.ToString());
+
+            while (true)
+            {
+                string number = Console.ReadLine();
+
+                Console.WriteLine(Dynamsys.IsNumber(number));
+            }
         }
     }
 }
