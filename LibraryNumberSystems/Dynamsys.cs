@@ -20,7 +20,7 @@ namespace NumberSystems
             Regex.Escape(_nfi.PositiveSign + _nfi.NegativeSign) + @"]?([0-9_A-Z]*" +
             Regex.Escape(_nfi.NumberDecimalSeparator) + @"?[0-9_A-Z]+){1}$";
 
-        public static int MaxNumberSystemValue { get => _charactersSet.Length; }
+        public static int MaxNumberSystemValue { get => _charactersSet.Length - 1; }
         public static string CharactersSet { get => _charactersSet; }
 
         public byte CurrentNumberSystem { get; private set; }
